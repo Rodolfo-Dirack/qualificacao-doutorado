@@ -1,33 +1,26 @@
-%% abtex2-modelo-trabalho-academico.tex, v-1.4 laurocesar
-%% Copyright 2012-2013 by abnTeX2 group at http://abntex2.googlecode.com/ 
-%%
-%% This work may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.3
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%   http://www.latex-project.org/lppl.txt
-%% and version 1.3 or later is part of all distributions of LaTeX
-%% version 2005/12/01 or later.
-%%
-%% This work has the LPPL maintenance status `maintained'.
-%% 
-%% The Current Maintainer of this work is the abnTeX2 team, led
-%% by Lauro César Araujo. Further information are available on 
-%% http://abntex2.googlecode.com/
-%%
-%% This work consists of the files abntex2-modelo-trabalho-academico.tex,
-%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
-%%
-
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-% abnTeX2: Modelo de Trabalho Acadêmico (tese de doutorado, dissertação de
-% mestrado e trabalhos monográficos em geral) em conformidade com 
-% ABNT NBR 14724:2011: Informação e documentação - Trabalhos acadêmicos -
-% Apresentação
-% ------------------------------------------------------------------------
-% ------------------------------------------------------------------------
-
+%
+% Qualificacao_Doutorado.tex (LateX)
+% 
+% Objetivo: Arquivo principal do relatório de qualificação de doutorado.
+% baseado em um template para a geração de documentos em LaTeX.
+% 
+% Versão 1.0
+% 
+% Site: http://www.dirackslounge.online
+% 
+% Programador: 
+%		(1.4) - Lauro César Araujo 
+%			Template, distribuição e manutenção
+%		(1.5) - Rodolfo A. C. Neves (Dirack) 07/10/2019 
+%			Modificações e utilização neste relatório
+% 
+% Email: rodolfo_profissional@hotmail.com
+% 
+% Licença (Versão modificada): GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
+%
+% Licença (Versão original): LaTeX Project Public License (LPPL - 1.3) <http://www.latex-project.org/lppl.txt>
+%
+% Documentação extra: <http://abntex2.googlecode.com/>
 
 \documentclass[
 	% -- opções da classe memoir --
@@ -47,126 +40,59 @@
 	brazil				% o último idioma é o principal do documento
 	]{abntex2}
 
-% ---
-% PACOTES
-% ---
-
-% ---
-% Pacotes fundamentais
 \usepackage{multirow}
-%\usepackage{enumerate}
 \usepackage{amsmath}
 \usepackage{tocloft}
-\usepackage{cmap}				% Mapear caracteres especiais no PDF
+\usepackage{cmap}			% Mapear caracteres especiais no PDF
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
-%\usepackage{fourier}
-%\usepackage[portuges,brazil]{babel}
 \usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% Determina a codificação utiizada (conversão automática dos acentos)
-\usepackage{makeidx}            % Cria o indice
+\usepackage{makeidx}            	% Cria o indice
 \usepackage{amssymb,amsfonts,amsmath,wasysym}
-%\usepackage{hyperref}  			% Controla a formação do índice
-%\usepackage{cleveref}
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{nomencl} 			% Lista de simbolos
-\usepackage{color}				% Controle das cores
+\usepackage{color}			% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{subfig}
-\usepackage{float} % Colocar a figura no local certo
-\usepackage{scalefnt} % Pacote da redimensionar a fonte de tabelas, figuras e equações.
+\usepackage{float} 			% Colocar a figura no local certo
+\usepackage{scalefnt} 			% Pacote da redimensionar a fonte de tabelas, figuras e equações.
 \usepackage{placeins}
 \allowdisplaybreaks
 \usepackage{kantlipsum}
-%\usepackage{showframe}
-%\renewcommand{\rmdefault}{phv} % Arial
-%\renewcommand{\sfdefault}{phv} % Arial
 \usepackage{pdfpages}
 \usepackage{titlesec}
-
-%\titleformat{\section}{\normalfont\scshape}{\thesection}{1em}{}
-%\titlespacing{\section}{0pt}{12pt}{6pt} 
-
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}			 % Citações padrão ABNT
+\usepackage{tensor}
+\usepackage{setspace}
+\usepackage{caption}
 
 \renewcommand{\figurename}{Figura-}
 \usepackage[figurename=Figura]{caption}
 
-% ---
-
 \renewcommand{\chapnumfont}{\bfseries}
-
 \renewcommand{\ABNTEXfontereduzida}{\mdseries\footnotesize}
-%\renewcommand{\ABNTEXchapterfont}{\bfseries\sffamily}
-
-%\renewcommand{\ABNTEXsubsectionfont}{\fontseries{n}\selectfont}
-%\renewcommand{\ABNTEXsubsubsectionfont}{\fontseries{it}\selectfont}
-%
-%\renewcommand{\ABNTEXpartfontsize}{\normalsize}
-\renewcommand{\ABNTEXchapterfontsize}{\bfseries \normalsize}%{\Large}
-\renewcommand{\ABNTEXsectionfontsize}{\normalsize}%{\large}
-%\renewcommand{\ABNTEXsubsectionfontsize}{\normalsize}
-%\renewcommand{\ABNTEXsubsubsectionfontsize}{\normalsize}
-
-%\renewcommand{\agradecimentosname}{\textbf{AGRADECIMENTOS}}
-%\renewcommand{\resumoname}{\textbf{RESUMO}}
-%\renewcommand{\contentsname}{\textbf{SUMÁRIO}}
-%\renewcommand\contentsname{\textbf{SUMÁRIO}}
+\renewcommand{\ABNTEXchapterfontsize}{\bfseries \normalsize}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
 \addto{\captionsbrazil}{\renewcommand{\contentsname}{\textbf{SUMÁRIO}}}
-%\addto{\captionsbrazil}{\renewcommand{\listfigurename}{\textbf{LISTA DE ILUSTRAÇÕES}}}
 \addto{\captionsbrazil}{\renewcommand{\bibname}{\bfseries \textbf{REFERÊNCIAS}\selectfont}}
-%\addto{\captionsbrazil}{\renewcommand{\appendixname}{\bfseries\MakeUppercase{APÊNDICES}}}
-
 \renewcommand{\apendicesname}{\bfseries \selectfont  APÊNDICES}
 \renewcommand{\apendicename}{\bfseries\selectfont APÊNDICE}
 \renewcommand{\anexosname}{\bfseries ANEXOS}
-%\chapterstyle{ell}
-% ---
-% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
-% ---
-\usepackage{lipsum}				% para geração de dummy text
-% ---
 
-
-% ---
-% Pacotes de citações
-% ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
-
-% CONFIGURAÇÕES DE PACOTES
-% --- 
-% ---
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
-%\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-%\renewcommand{\backrefpagesname}{}
-% Texto padrão antes do número das páginas
-%\renewcommand{\backref}{}
-% Define os textos da citação
-%\renewcommand*{\backrefalt}[4]{
-%	\ifcase #1 %
-%		Nenhuma citação no texto.%
-%	\or
-%		Citado na página #2.%
-%	\else
-%		Citado #1 vezes nas páginas #2.%
-%	\fi}%
-% ---
 \renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
+	\ifcase #1
 	
 	\or
 	
 	\else
 
-	\fi}%
-% Informações de dados para CAPA e FOLHA DE ROSTO
-% ---
+	\fi}
 
-
-
-\instituicao{%
+%% Informações básicas da CAPA
+\instituicao{
   Universidade Federal do Pará -- UFPA
   \par
   Instituto de Geociências
@@ -181,23 +107,14 @@
 \orientador{Prof. Dr. João Carlos Ribeiro Cruz}
 \coorientador{}
 
-%\tipotrabalho{Mestrado}
-% O preambulo deve conter o tipo do trabalho, o objetivo, 
-% o nome da instituição e a área de concentração 
 \preambulo{Relatório apresentado ao Programa de Pós-Graduação em Geofísica do Instituto de Geociências 
 da Universidade Federal
 do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Geofísica.}
-% ---
 
-
-
-% ---
-% Configurações de aparência do PDF final
-
-% alterando o aspecto da cor azul
 \definecolor{blue}{RGB}{41,5,195}
 \definecolor{black2}{RGB}{39,64,139}
-% informações do PDF
+
+%% Configurações padrão do PDF
 \hypersetup{
 		backref=true,
 		pagebackref=true,
@@ -206,49 +123,32 @@ do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Ge
 		pdfauthor={\imprimirautor},
     	pdfsubject={\imprimirpreambulo},
 		pdfkeywords={PALAVRAS}{CHAVES}{abnt}{abntex}{abntex2},
-	    pdfproducer={LaTeX with abnTeX2}, 	% producer of the document
+	    pdfproducer={LaTeX with abnTeX2}, 		% producer of the document
 	    pdfcreator={\imprimirautor},
-    	colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=black,          	% color of internal links
-    	citecolor=black,        		% color of links to bibliography
-    	linkcolor=black,          	% color of internal links
-    	citecolor=black,        		% color of links to bibliography
-    	filecolor=black,      		% color of file links
+    	colorlinks=true,       				% false: boxed links; true: colored links
+    	linkcolor=black,          			% color of internal links
+    	citecolor=black,        			% color of links to bibliography
+    	linkcolor=black,          			% color of internal links
+    	citecolor=black,        			% color of links to bibliography
+    	filecolor=black,      				% color of file links
 		urlcolor=black,
 		bookmarksdepth=4
 }
-% --- 
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
-
-% O tamanho do parágrafo é dado por:
+% Indentação do parágrafo
 \setlength{\parindent}{1.3cm}
 
-% Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+% Espaçamento entre parágrafos
+\setlength{\parskip}{0.2cm}
 
-% Controles do espaçamento entre linhas:
-\OnehalfSpacing	% espaçamento um e meio (padrão); 
-%\DoubleSpacing		% espaçamento duplo
-%\SingleSpacing		% espaçamento simples	
-% --- 
-	
+% Espaçamento entre linhas
+\OnehalfSpacing	
 
-% ---
-% compila o indice
-% ---
+% compilar indice
 \makeindex
-% ---
 
-% ---
-% Compila a lista de abreviaturas e siglas
-% ---
+% Compilar lista de abreviaturas e siglas
 \makenomenclature
-% ---
-
-\usepackage{tensor}
 
 \renewcommand{\sin}{\mathrm{sen}}
 \newcommand{\disp}{\displaystyle}
@@ -257,24 +157,10 @@ do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Ge
 \hyphenation{geo-fí-si-co}
 \hyphenation{MCSEM}
 
-
-
-% Numeração por capítulo das figuras
-%\counterwithin{figure}{chapter}
-%\counterwithin{table}{chapter}
-% ---
-%\usepackage{subfigure}
-\usepackage{setspace}
-\usepackage{caption}
-%\captionsetup{format=hang,labelsep=period,margin=10pt,font=small,justification=justified,labelfont=md}
 \captionsetup{labelsep=period,font=small,justification=justified,labelfont=md,format=plain,labelsep=endash}
 
-
-
-
-
-\renewcommand{\imprimircapa}{%
-\begin{capa}%
+\renewcommand{\imprimircapa}{
+\begin{capa}
 	\begin{figure}[!t]
 		\begin{center}
 			\includegraphics[scale=0.3]{images/Logo_UFPA2.pdf}
@@ -283,7 +169,6 @@ do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Ge
 			\begin{center}
 				{\ABNTEXchapterfont\bfseries{UNIVERSIDADE FEDERAL DO PARÁ \\ INSTITUTO DE GEOCIÊNCIAS \\ PROGRAMA DE PÓS-GRADUAÇÃO EM GEOFÍSICA} }
 		\end{center}
-%\vspace*{2cm}
 
 \center
 
@@ -291,11 +176,7 @@ do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Ge
 {\ABNTEXchapterfont\bfseries\large\MakeUppercase{\imprimirautor}}\\
 \vspace*{2cm}
 {\ABNTEXchapterfont\bfseries\large\imprimirtitulo}\\
-\vspace*{2cm}
-%			\begin{center}
-				{\ABNTEXchapterfont\bfseries\large{RELATÓRIO DE QUALIFICAÇÃO DE DOUTORADO}}
-%			\end{center}
-%{\ABNTEXchapterfont\large\imprimirautor}
+\vspace*{2cm}{\ABNTEXchapterfont\bfseries\large{RELATÓRIO DE QUALIFICAÇÃO DE DOUTORADO}}
 \vspace*{\fill}\\
 {\large\MakeUppercase{\imprimirlocal}}
 \par
@@ -317,25 +198,19 @@ do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Ge
 	\vspace{\baselineskip}
 	\vspace{\baselineskip}
 	\vspace*{\fill}
-	\abntex@ifnotempty{\imprimirpreambulo}{%
-%	\hspace{.5\textwidth}
+	\abntex@ifnotempty{\imprimirpreambulo}{
 	\hspace{5cm}
 	\begin{minipage}{10cm}
 	\SingleSpacing
 	\imprimirpreambulo\\ \\
 	{\imprimirorientadorRotulo~Prof. Dr. João Carlos Ribeiro Cruz}\\
-	%{\imprimircoorientadorRotulo~}
-	\end{minipage}%
+	\end{minipage}
 	\vspace*{\fill}
-	}%
-	
-%	{\imprimirorientadorRotulo~\imprimirorientador}
-
-	\abntex@ifnotempty{\imprimircoorientador}{%
-	{\large\imprimircoorientadorRotulo~\imprimircoorientador}%
-	}%
+	}
+	\abntex@ifnotempty{\imprimircoorientador}{
+	{\large\imprimircoorientadorRotulo~\imprimircoorientador}
+	}
 	\vspace*{\fill}
-%%	{\abntex@ifnotempty{\imprimirinstituicao}{\imprimirinstituicao\vspace*{\fill}}}
 	{\large\imprimirlocal}
 	\par
 	{\large\imprimirdata}
@@ -346,171 +221,12 @@ do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Ge
 
 \makeatother
 
-
-
-
-
-
-
-
-% ----
-% Início do documento
-% ----
-%\usepackage{nohyperref}
-%\renewcommand{\ABNTEXsectionfont}{\fontseries{m}\selectfont}
 \begin{document}
 
-% ----------------------------------------------------------
-% ELEMENTOS PRÉ-TEXTUAIS
-% ----------------------------------------------------------
-% \pretextual
-
-% ---
-% Capa %%%%TROCAR ARQUIVO COM MINHAS 
-% ---
 \imprimircapa
-% ---
 
-% ---
-% Folha de rosto %%%%TROCAR ARQUIVO COM MINHAS INFORMAÇÕES
-% (o * indica que haverá a ficha bibliográfica)
-% ---
 \imprimirfolhaderosto*
-% ---
 
-% ---
-% Inserir a ficha bibliografica
-% ---
-
-% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
-% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
-% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
-% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
-% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
-% o conteúdo de implementação deste arquivo pelo comando abaixo:
-%
-
-
-%  
-
-%\begin{fichacatalografica}
-%	\vspace*{\fill}					% Posição vertical
-%	\hrule							% Linha horizontal
-%	\begin{center}					% Minipage Centralizado
-%	\begin{minipage}[c]{12.5cm}		% Largura
-%	
-%	\imprimirautor
-%	
-%	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-%	\imprimirlocal, \imprimirdata-
-%	
-%	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
-%	
-%	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
-%	
-%	\hspace{0.5cm}
-%	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-%	\imprimirdata.}\\
-%	
-%	\hspace{0.5cm}
-%		1. Geofísica Aplicada.
-%		2. Métodos Eletromagnéticos.
-%		3. MCSEM 1D
-%		4. MATLAB
-%		5. Interface Gráfica
-%		I. SOUZA, Victor Cezar Tocantins de. Orient.
-%		II. Universidade Federal do Pará.
-%		III. Faculdade de Geofísica.
-%		IV. Título\\ 			
-%	
-%	\hspace{8.75cm} CDU XX:XXX:XXX.X\\
-%	
-%	\end{minipage}
-%	\end{center}
-%	\hrule
-%\end{fichacatalografica}
-% ---
-
-% ---
-% Inserir errata
-% ---
-%\begin{errata}
-%Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
-%
-%\vspace{\onelineskip}
-%
-%FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
-%reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
-%rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-%cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
-%Zootecnia, Universidade de São Paulo, São Paulo, 2011.
-%
-%\begin{table}[htb]
-%\center
-%\footnotesize
-%\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
-%  \hline
-%   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
-%    \hline
-%    1 & 10 & auto-conclavo & autoconclavo\\
-%   \hline
-%\end{tabular}
-%\end{table}
-%
-%\end{errata}
-% ---
-
-% ---
-% Inserir folha de aprovação
-% ---
-
-% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
-% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
-% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
-% imagem da página assinada pela banca com o comando abaixo:
-%
-
-%\includepdf{Folha.pdf}
-%
-\setlength{\ABNTEXsignwidth}{11cm}
-%\begin{folhadeaprovacao}
-%\begin{center}
-% {\ABNTEXchapterfont\bfseries\large\MakeUppercase{\imprimirautor}}
-% \vspace*{\fill}\vspace*{\fill}
-% \begin{center}
-% \ABNTEXchapterfont\bfseries\large\imprimirtitulo
-% \end{center}
-% \vspace*{\fill}
-% \hspace{.45\textwidth}
-% \begin{minipage}{.5\textwidth}
-% \imprimirpreambulo
-% \end{minipage}%
-% \vspace*{\fill}
-% \end{center}
-% Data de Aprova\c{c}\~ao:  03/07/2017 \\ \\ \\ 
-% Banca Examinadora:
-% \begin{center}
-% \assinatura{Prof. Dr. João Carlos Ribeiro Cruz - Orientador \\ Universidade Federal do Par\'a -- UFPA}
-% \assinatura{Prof. Dr. Paulo Eduardo Miranda Cunha - Membro  \\ Petrobrás}
-% \assinatura{Prof. Dr. Rubenvaldo Pereira - Membro \\ Universidade Federal do Par\'a -- UFPA}
-% \end{center}
-%Suplentes:
-%\begin{center}
-%\assinatura{Professor Pedro Andres Chira Oliva \\ Doutor em geof\'sica \\ Universidade Federal do Par\'a -- UFPA}
-%\assinatura{Professor Manuel de Jesus Costa\\ Doutor em geofísia \\ Universidade Federal do Par\'a -- UFPA}
-%\end{center}
-%\begin{center}
-%\vspace*{0.5cm}
-%{\large\imprimirlocal}
-%\par
-%{\large\imprimirdata}
-%\vspace*{1cm}
-%\end{center}
-%\includepdf{Folha.pdf}
-%\end{folhadeaprovacao}
-
-% Dedicatória
-% ---
 \begin{dedicatoria}
    \vspace*{\fill}
    \vspace*{13cm}
@@ -520,12 +236,7 @@ do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Ge
    \end{flushright}
      \vspace*{\fill}
 \end{dedicatoria}
-% ---
 
-
-% ---
-% Agradecimentos
-% ---
 \begin{agradecimentos}[\fontsize{12pt}{\baselineskip}\textbf{AGRADECIMENTOS}]
 \vspace*{1.5cm}
 
@@ -539,7 +250,8 @@ vários
 dos programas aqui utilizados.
 
 Agradeço à minha mãe Regina de Nazaré,
-à minha irmã Rebeca Cristina, às minhas sobrinhas Ágatha e Anadora, e ao meu pai Ricardo Neves, por todo apoio e dedicação
+à minha irmã Rebeca Cristina, às minhas sobrinhas Ágatha e Anadora, 
+e ao meu pai Ricardo Neves, por todo apoio e dedicação
 durante a árdua caminhada para a realização deste sonho!
 
 E agradeço à amizade de amigos que conquistei durante o curso de Geofísica, e que de forma direta ou indireta
@@ -547,11 +259,7 @@ me ajudaram na realização do trabalho:
 Leonardo Reis, Hugo Souza, Diogo Rezende, Antônio Rizimar e Raphael Di Carlo.
 
 \end{agradecimentos}
-% ---
 
-% ---
-% Epígrafe
-% ---
 \begin{epigrafe}
     \vspace*{\fill}
 	\begin{flushright}
@@ -559,15 +267,9 @@ Leonardo Reis, Hugo Souza, Diogo Rezende, Antônio Rizimar e Raphael Di Carlo.
 		(Baruch Spinoza)}
 	\end{flushright}
 \end{epigrafe}
-% ---
 
-% ---
-% RESUMOS
-% ---
-
-% resumo em português
 \begin{resumo}[\fontsize{12pt}{\baselineskip}\textbf{RESUMO}]
-\OnehalfSpacing	% espaçamento um e meio (padrão); 
+\OnehalfSpacing
 O método do elemento de reflexão comum (ERC) é uma alternativa para os métodos
 usuais de empilhamento ou migração para a seção de afastamento nulo. Porém, diferente do empilhamento 
 convencional, em que os pares são dispostos em famílias de ponto médio comum (PMC) de maneira simétrica ao 
@@ -581,9 +283,8 @@ aquisição sísmica convencional e de dados organizados em famílias PMC.
  Interpolação Elemento de Reflexão Comum (ERC). 
 \end{resumo}
 
-% resumo em inglês
 \begin{resumo}[\fontsize{12pt}{\baselineskip}\textbf{ABSTRACT}]
-\OnehalfSpacing	% espaçamento um e meio (padrão); 
+\OnehalfSpacing
 The common reflection element method (CRE) is an alternative to usual stacking and migration methods 
 in zero offset section domain. Besides convencional stacking, wich source receiver pairs are simetricaly distributed into common 
 midpoint gathers (CMP) in the neighboorhood of a central CMP, in CRE gathers the disposition of 
@@ -596,70 +297,19 @@ and allow CRE stacking, despite convencional CMP gather as input.
 Common Reflection Element (CRE) interpolation.
 \end{resumo}
 
-% ---
-% inserir lista de ilustrações
-% ---
 \renewcommand{\listfigurename}{\fontsize{12pt}{\baselineskip}\textbf{LISTA DE ILUSTRAÇÕES}}
 \pdfbookmark[0]{\listfigurename}{lof}
 \listoffigures*
 
 \cleardoublepage
 
-% ---
-% inserir lista de tabelas
-% ---
-%\pdfbookmark[0]{\listtablename}{lot}
-%\listoftables*
-%\cleardoublepage
-% ---
-
-% ---
-% inserir lista de abreviaturas e siglas
-% A lista de Abreviaturas e Siglas pode ser facilmente montada com o pacote 
-% nomencl. Abaixo segue um exemplo.
-% ---
-%\nomenclature{Fig.}{Figura}
-%\nomenclature{$A_i$}{Area of the $i^{th}$ component} 
-%\nomenclature{456}{Isto é um número}
-%\nomenclature{123}{Isto é outro número}
-%\nomenclature{a}{primeira letra do alfabeto}
-%\nomenclature{lauro}{este é meu nome} 
-%
-%\renewcommand{\nomname}{Lista de abreviaturas e siglas}
-%\pdfbookmark[0]{\nomname}{las}
-%\printnomenclature
-%\cleardoublepage
-% ---
-
-% ---
-% inserir lista de símbolos
-% ---
-% O abnTeX2 não provê mecanismo para lista de símbolos.
-% ---
-
-% ---
-% inserir o sumario
-% ---
-%\renewcommand{\tocheadstart}{\ABNTEXchapterfont}
-\pdfbookmark[0]{\contentsname}{toc}
-%\settocdepth{chapter}
-
-
 \tableofcontents*
-%%%%%%%Colocar minhas informações
-%\includepdf{SUMARIO.pdf}
 
 \cleardoublepage
-% ---
-
-
-
-% ----------------------------------------------------------
-% ELEMENTOS TEXTUAIS
-% ----------------------------------------------------------
-% É possível usar \textual ou \mainmatter, que é a macro padrão do memoir.  
+ 
 \mainmatter
 
+%% Inclusão dos capítulos ao documento principal
 % \include{introducao} %INTRODUÇÃO
 % \include{objetivo} % OBJETIVOS 1
 % \include{justificativa} % 2
@@ -669,27 +319,10 @@ Common Reflection Element (CRE) interpolation.
 % \include{cronograma} % 6
 % \include{conclusao} %
 
-%% ---
-\bookmarksetup{startatroot}% 
-%% ---
-%% ----------------------------------------------------------
-%% Referências bibliográficas
-%% ----------------------------------------------------------
+\bookmarksetup{startatroot}
+
 %\bibliography{mybib}
-%
-%% ----------------------------------------------------------
-%% Glossário
-%% ----------------------------------------------------------
-%%
-%% Consulte o manual da classe abntex2 para orientações sobre o glossário.
-%%
-%%\glossary
-%
-%% ----------------------------------------------------------
-%% Apêndices
-%% ----------------------------------------------------------
-%
-%% ---
+
 %% Inicia os apêndices
 %% ---
 %\begin{apendicesenv}
@@ -703,9 +336,6 @@ Common Reflection Element (CRE) interpolation.
 %\end{center}
 %\newpage
 
-%% ----------------------------------------------------------
-%\chapter{Quisque libero justo}
-%% ----------------------------------------------------------
 % \input{apendiceA}
 % \input{apendiceB}
 % \input{apendiceC}
@@ -713,46 +343,13 @@ Common Reflection Element (CRE) interpolation.
 % \input{MT}
 %
 %\end{apendicesenv}
-%% ---
-%
-%
-%% ----------------------------------------------------------
-%% Anexos
-%% ----------------------------------------------------------
-%
-%% ---
+
 %% Inicia os anexos
-%% ---
 %\begin{anexosenv}
-%
-%% Imprime uma página indicando o início dos anexos
 %\partanexos
-%
-%% ---
 %\include{AnexoA}
 
-
-%% ---
-%\lipsum[30]
-%
-%% ---
-%\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
-%parturient montes nascetur ridiculus mus}
-%% ---
-%
-%\lipsum[31]
-%
-%% ---
-%\chapter{Fusce facilisis lacinia dui}
-%% ---
-%
-%\lipsum[32]
-%
 %\end{anexosenv}
-
-%---------------------------------------------------------------------
-% INDICE REMISSIVO
-%---------------------------------------------------------------------
 
 \cleardoublepage
 \phantomsection 
