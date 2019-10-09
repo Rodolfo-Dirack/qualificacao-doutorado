@@ -16,7 +16,7 @@
 \chapter{EMPILHAMENTO POR ELEMENTO DE REFLEXÃO COMUM (ERC)}
 
 O método do Elemento de Reflexão Comum (ERC) é uma alternativa para os métodos usuais de empilhamento PMC ou
-migração para a seção de afastamento nulo. Não requere conhecimento do modelo geral em subsuperfície, apenas
+migração para a seção de afastamento nulo. Não requer conhecimento do modelo geral em subsuperfície, apenas
 o conhecimento da velocidade próxima a superfície é necessário a priori.
 O método ERC é baseado somente em considerações cinemáticas em 2D e não é
 um processo que preserva as amplitudes.
@@ -41,6 +41,35 @@ Este processo é semelhante a análise sobretempo normal convencional, todavia e
 domínio PMC, o método ERC é feito no domínio ERC construído durante o processo, o parâmetro otimizado $R_{NIP}$,$\beta_0$
 é especificado a partir da análise de coerência nos dados \cite{cre}.
 
+
+As coordenadas das curvas ERC, mesmo sem o conhecimento da curvatura do refletor em subsuperfície, são definidas
+a partir dos parâmetros $R_{NIP}$ e $\beta_0$, obtidos através de algum processo de orimização, 
+para cada PMC central $m_0$ na seção de afastamento nulo. A equação que descreve a trajetória ERC no plano $m,h$:
+
+\begin{equation}
+ \label{eq:4.65}
+ x_m= x_0 + \frac{1}{2\alpha} (1-\sqrt{1+4\alpha^2h^2})
+\end{equation}
+
+
+Onde $\alpha$ é um parâmetro de assimetria que desenpenha um papel importante na seleção de pares fonte-receptor para os quais
+o correspondente raio de reflexão refletem no mesmo ponto sobre o refletor \cite{tygel}. É dado por:
+
+\begin{equation}
+\label{eq:4.67}
+ \alpha=\frac{\sin{\beta_0}}{R_{NIP}}
+\end{equation}
+
+Os traços sísmicos com as coordenadas $m,h$ dadas pela Equação \ref{eq:4.65} formam uma família ERC.
+O método ERC também possui uma aproximação de tempo de trânsito para
+as reflexões \cite{cre}:
+
+\begin{multline}
+\label{eq:4.66}
+t(m,h)=(\tau_0-\frac{2R_{NIP}}{v_0})+\frac{R_{NIP}}{v_0}\sqrt{1-2\alpha(m-m_0+h)+\frac{(m-m_0+h)^2}{R_{NIP}^2}} \\
++\frac{R_{NIP}}{v_0}\sqrt{1-2\alpha(m-m_0-h)+\frac{(m-m_0-h)^2}{R_{NIP}^2}}
+\end{multline}
+
 \begin{figure}[H]
 \caption{Representação esquemática de um arranjo ERC para um refletor circular de raio $R$ e profundidade
 mínima $D$: A família ERC é formada pelos pares $s_i$-$r_i$ (fonte-receptor) que possuem o mesmo ponto de
@@ -58,25 +87,26 @@ $m_0$ com raio de curvatura $R_{NIP}$ e ângulo de incidência $\beta_0$.}
 \end{figure}
 
 O principal desvantagem do método ERC é que as coordenadas de fontes e receptores são distribuídas assimetricamente em tal 
-arranjo: Na Figura \ref{fig:4.1} representamos um arranjo ERC em um modelo do refletor circular com velocidade constante $v$.
-Todos os raios que saem das fontes $s_i$ e chegam aos receptores $r_i$ possuem o mesmo ponto de reflexão sobre o refletor.
+arranjo: Na Figura \ref{fig:4.1} representamos um arranjo ERC em um modelo do refletor circular 
+em um meio com velocidade constante $v$.
+Todos os raios de reflexão que saem das fontes $s_i$ e chegam aos receptores $r_i$ 
+possuem o mesmo ponto de reflexão sobre o refletor.
 Porém, a curvatura do refletor estabelece uma distribuição assimétrica dos pares fonte e receptor no domínio do afastamento
-e em distância em relação ao PMC central $m_0$.
+e na distância em relação ao PMC central $m_0$.
 
-A Figura \ref{fig:4.2} mostra as coordenadas $m,h$ de várias curvas ERC para o modelo do refletor circular: A única distribuição
-simétrica é com $m_0=0$ (sobre o topo do refletor circular), as outras distribuições são assimétricas por causa da influência da
-curvatura do refletor circular.
+A Figura \ref{fig:4.2} mostra as coordenadas $m,h$ de várias curvas ERC hipotéticas com $\alpha$ dado pela Equação \ref{eq:4.66}.
+As curvas ERC intersectam as seções de afastamento constante (linhas horizontais) e as seções de ponto médio comum 
+(linhas verticais), não sendo posível construir uma malha regular para amostrar tais curvas.
+A única distribuição que pode ser amostrada regularmente no plano $m,h$ ocorre quando $\alpha=0$, que corresponderá
+a família de ponto médio comum de um dado $m_0$, uma linha vertical no plano (em roxo).
 
 \begin{figure}[htb]
-\caption{Representação esquemática das coordenadas do ERC sobre o modelo do refletor circular da Figura \ref{fig:4.1}:
-Modificamos a posição do PMC central $m_0$ variando o ângulo $\gamma$ no modelo do refletor circular.
-Ao variarmos o ângulo $\theta$, mantendo $\gamma$ constante, obtemos os pares $s_i$-$r_i$ (fonte-receptor)
-dentro da família
-ERC, as posições $h$ (meio afastamento) e $m$ (PMC) são obtidas para cada par fonte-receptor.
-Cada curva colorida representa uma posição
-diferente de $m_0$, um valor diferente de $R_{NIP}$ e $\beta_0$, e uma família ERC diferente.}
+\caption{Representação esquemática das coordenadas de várias trajetórias ERC sobre o plano PMC $m$ x meio afastamento
+$h$. As linhas do grid representam as seções de afastamento constante (linhas horizontais) e seções PMC (linhas verticais).
+Estas trajetórias foram construídas variando $\beta_0$, $R_{NIP}$ e $\alpha$  na Equação \ref{eq:4.65}. Quando
+$\alpha=0$ a trajetória ERC será a trajetória de uma família PMC para um PMC $m_0$.}
 \begin{center}
-\includegraphics[scale=0.5]{images/coordenadas_CRE.png}
+\includegraphics[scale=0.5]{images/creCoord.png}
 \vspace{-0.3cm}
 \end{center}
 \begin{center}
@@ -85,23 +115,6 @@ diferente de $m_0$, um valor diferente de $R_{NIP}$ e $\beta_0$, e uma família 
 \label{fig:4.2}
 \end{figure}
 
-As coordenadas das curvas ERC, mesmo sem o conhecimento da curvatura do refletor em subsuperfície, são definidas
-a partir de parâmetros estabelecidos para cada PMC central $m_0$. A partir da aproximação de tempo 
-de trânsito ERC \cite{cre}:
-
-\begin{multline}
-\label{eq:4.66}
-t(m,h)=(\tau_0-\frac{2R_{NIP}}{v_0})+\frac{R_{NIP}}{v_0}\sqrt{1-2\alpha(m-m_0+h)+\frac{(m-m_0+h)^2}{R_{NIP}^2}} \\
-+\frac{R_{NIP}}{v_0}\sqrt{1-2\alpha(m-m_0-h)+\frac{(m-m_0-h)^2}{R_{NIP}^2}}
-\end{multline}
-
-Onde $\alpha$ é um parâmetro de assimetria dado por:
-
-\begin{equation}
-\label{eq:4.67}
- \alpha=\frac{\sin{\beta_0}}{R_{NIP}}
-\end{equation}
-
-
-O parâmetro de assimetria desenpenha um papel importante na seleção de pares fonte-receptor para os quais
-o correspondente raio de reflexão refletem no mesmo ponto \cite{tygel}.
+Portanto, o método ERC é dependente de alguma estratégia de interpolação para os traços sísmicos sobre a trajetória ERC.
+E para a obtenção da família ERC, necessita dos parâmetros $R_{NIP}$ e $\beta_0$ no calculo da aproximação da curva de tempo
+de trânsito ERC. Estes parâmetros serão utilizada no empilhamento para a obtenção da seção empilhada ERC.
