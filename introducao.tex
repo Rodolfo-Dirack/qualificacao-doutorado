@@ -1,0 +1,46 @@
+\chapter{INTRODUÇÃO}
+\label{intro}
+
+A equação do sobretempo normal \cite{dix} é uma aproximação de tempo de trânsito de reflexão válida para pequenos afastamentos
+entre os pares fonte receptor na superfície de registro em uma aquisição sísmica. Esta equação foi desenvolvida para modelos de
+multicamadas planas horizontais. 
+A equação de sobretempo normal é uma aproximação em série de Taylor de segunda ordem para o tempo de trânsito, por isto é
+também chamada de aproximação hiperbólica. Todavia, esta aproximação diverge do tempo de trânsito analítico
+em grandes afastamentos.
+
+Aproximações de tempo de trânsito não hiperbólicas foram desenvolvidas na literatura,
+com o intuito de estender a região de convergência das
+aproximações de tempo de trânsito no domínio do afastamento: Estas aproximações utilizam mais de dois termos para aumentar a 
+acurácia da análise de velocidades e a correção de sobretempo normal. Cada uma destas aproximações terá
+as suas limitações na estimativa das velocidades e na relação afastamento profundidade.
+
+O empilhamento convencional, utilizando as aproximações de sobretempo normal hiperbólicas ou não hiperbólicas, é estendido
+para o domínio do Ponto Médio Comun (PMC) a partir do empilhamento Superfície de Reflexão Comum (SRC): 
+O empilhamento é realizado sobre uma superfície de tempo de
+trânsito no domínio do meio afastamento $h$ e na vizinhança de um PMC central $m_0$, a partir de
+três parâmetros ($R_N$, $R_{NIP}$ e $\beta_0$) dados para cada $m_0$.
+O empilhamento SRC possui uma aproximação de tempo de trânsito hiperbólica \cite{jager}, e várias aproximações
+de tempo de trânsito SRC foram propostas com o objetivo de estender a região de convergência desta aproximação:
+As aproximações do SRC não hiperbólico \cite{fomel1}, SRC quarta ordem
+\cite{germam}.
+
+Um caso especial do método de empilhamento SRC, é o empilhamento por Elemento de Reflexão Comum (ERC):
+O empilhamento ERC é também realizado no domínio do afastamento $h$ e na vizinhança de um PMC central $m_0$, assim como o
+empilhamento SRC. Porém, o empilhamento ERC é feito sobre uma curva de tempo de trânsito de reflexão correspondente ao
+conjunto de trajetórias de reflexão que possuem em comun
+o mesmo ponto de incidência sobre o refletor.
+Este método possui a vantagem de prover
+parâmetros importantes para a construção do modelo de velocidades, e utiliza dois dos parâmetros
+do método SRC ($R_{NIP}$ e $\beta_0$).
+A principal desvantagem do método ERC é a interpolação: O empilhamento ERC necessita de 
+traços em coordenadas de PMC $m$ e meio afastamento $h$ não coincidentes com as coordenadas
+e amostragem dos dados adquiridos.
+
+O objetivo desta pesquisa é propor uma metodologia de interpolção para o empilhamento ERC 
+a partir dos parâmetros extraídos da superfície de tempo de trânsito SRC. Utilizaremos o 
+algoritmo Very Fast Simulated Aneeling (VFSA) para obter os parâmetros do SRC de afastamentos nulo.
+Traçaremos a trajetória ERC no plano $m, h$ para estabelecer as coordenadas dos traços sobre a curva.
+Interpolaremos os dados adiquiridos utilizando os filtros adaptativos de predição de erro. E montaremos
+o a família ERC para cada $m_0$ e trajetória ERC determinada na etapa anterior. Finalizadas estas etapas,
+obteremos a seção empilhada ERC a partir do empilhamento sobre uma curva de tempo de trânsito ERC, determinada
+para cadar par $m_0, t_0$, sobre as famílias ERC.
