@@ -18,3 +18,49 @@
 
 
 
+Os filtros adaptativos de predição de errro (FPE) podem ser utilizados para regularizar os dados sísmicos,
+de modo a produzir uma amostragem suficiente para o estabelecimento das seções ERC.
+Como representado na Figuras \ref{fig:3.1}, a trajetória ERC calculada para cada $m_0$ não
+necessariamente intersecta as seções de afastamento constante nas coordenadas $m_i$, $h_i$ dos traços sísmicos. 
+A trajetória ERC calculada passa entre os traços identificados pelas coordenadas $m1,h2$ e $m3, h2$ na Figura \ref{fig:3.1},
+sendo necessário aumentar a discretização da seção $h2$ para poder amostrar corretamente a trajetória ERC.
+
+Ao intercalar os traços originais com novos traços zerados $m'_i$, e utilizar os filtros adaptativos de predição
+de erro para interpolar os valores das amostras em cada traço $m'_i$, dobramos 
+a discretização das seções de afastamento constante.
+Este processo pode ser repetido até que a discretização seja suficiente para amostrar a curva ERC em cada seção de afastamento
+constante (na Figura \ref{fig:3.2}, $m'_2$ está mais próximo da trajetória 
+ERC do que $m_3$ e $m_2$ já que a distância 
+entre os traços da seção $\Delta h$ é menor).
+
+\begin{figure}
+\caption{Representação esquemáticas de uma trajetória ERC para um $m_0$ arbitrário. A trajetória intersecta a seção de
+afastamento constante entre dois traços sísmicos identificados pelas coordenadas $m2, h2$ e $m3, h2$, sendo necessário
+aumentar a discretização para amostrar corretamente a trajetória. $\Delta h$ é a distância entre os traços da seção.}
+\begin{center}
+\includegraphics[scale=0.15]{images/interpolacao0.png}
+\vspace{-0.3cm}
+\end{center}
+\begin{center}
+ Fonte: Do Autor.
+\end{center}
+\label{fig:3.1}
+\end{figure}
+
+
+\begin{figure}
+\caption{Representação esquemática das seções de afastamento constante após a interpolação. A discretização foi aumentada
+intercalando traços zerados $m'_i$ entre os traços originais e depois realizando a interpolação FPE. O traço sísmico 
+identificado pela coordenada $m'_2, h2$ está mais próximo da coordenada real da trajetória ERC calculada que os traços 
+originais $m_2, h2$ e $m_3, h2$. o processo de interpolação é repetido até que a discretização seja suficiente para amostrar a 
+trajetória ERC.}
+\begin{center}
+\includegraphics[scale=0.15]{images/interpolacao.png}
+\vspace{-0.3cm}
+\end{center}
+\begin{center}
+ Fonte: Do Autor.
+\end{center}
+\label{fig:3.2}
+\end{figure}
+
