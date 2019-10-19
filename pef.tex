@@ -16,7 +16,30 @@
 
 \chapter{FILTROS ADAPTATIVOS DE PREDIÇÃO DE ERRO (FPE)}
 
+Uma restrição comumente utilizada na interpolação de traços sísmicos
+é assegurar que os dados interpolados, depois da filtragem,
+tenham mínima energia. Isto significa a escolha de valores
+nos limites do filtro de modo a minimizar o transiente. Neste ponto os mínimos
+quadrados levam grande vantagem, pois tendem a absorver grandes valores e a distribuir
+uniformemente os resíduos em tempo e frequência na extensão permitida \cite{claerbout92}.
 
+A filtragem é equivalente a multiplicação espectral. Assim, especificar a filtragem
+é o equivalente a preescrever o espectro dos dados interpolados. Uma escolha sensível
+é o espectro do dado registrado, que pode ser capturado através dos coeficientes dos
+filtros adaptativos de predição de erro (FPE) do dado \cite{spitz}. 
+
+Os FPE, também conhecidos como filtros de autoregressão, desenpenham o
+papel da ``matriz inversa de covariância'' da teoria das estimativas na estatística.
+O sinal é regredido sobre si mesmo na estimativa dos coeficientes do filtro. O FPE
+pode ser implementado na domínio tempo-espaço ou frequency-espaço. FPE no tempo-espaço
+são menos propensos a criar eventos espúrios na presença de ruído do que os filtros
+frequência-espaço \cite{abma}. 
+
+A utilização dos FPE na interpolação ocorre em dois passos:
+Primeiro, o FPE é estimado através da minimização da saída da convolução
+dos dados conhecidos com o FPE desconhecido. Segundo, os dados interpolados
+são estabelecidos a partir da minimização da convolução do FPE anteriormente 
+calculado com o modelo conhecido, restringido pelos dados conhecidos. \cite{curry}.
 
 Os filtros adaptativos de predição de errro (FPE) podem ser utilizados para regularizar os dados sísmicos,
 de modo a produzir uma amostragem suficiente para o estabelecimento das seções ERC.
