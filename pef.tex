@@ -41,6 +41,31 @@ dos dados conhecidos com o FPE desconhecido. Segundo, os dados interpolados
 são estabelecidos a partir da minimização da convolução do FPE anteriormente 
 calculado com o modelo conhecido, restringido pelos dados conhecidos. \cite{curry}.
 
+A segunda etapa também é resolvida a partir dos mínimos quadrados. Porém,
+o filtro já é conhecido e o objetivo agora é estimar os traços desconhecidos.
+A partir da seguinte formulação de um problema de mínimos quadrados \cite{liu11}:
+
+\begin{equation}
+\label{eq:7.1}
+ \hat{S}(t,x) = \arg \min_S \left \rVert S(t,x) - \sum^N_{n=1}\hat{B}_n(t,x) S_n(t,x) \right \Arrowvert^2_2
+\end{equation}
+
+Sujeito a seguinte restrição dos traços conhecidos:
+
+\begin{equation}
+\label{eq:7.2}
+ \hat{S}(t,x) = S_{known}(t,x_k)
+\end{equation}
+
+Onde $\hat{S}(t,x)$ representa a saída da interpolação.
+A minimização é feita a partir do método dos gradientes-conjugados \cite{hestenes}. 
+A restrição a partir da Equação \ref{eq:7.2} é utilizada como modelo inicial e restringe
+a saída utilizando os traços conhecidos em cada iteração no esquema dos gradientes-conjugados.
+O custo computacional é proporcional ao número de iterações multiplicado
+pelo tamanho do filtro, o número de amostras no tempo e no espaço $N_i x N_f x N_t x N_x$. 
+Crescendo o raio de suavização na regularização decresce o número de iterações no passo da
+estimativa do filtro \cite{liu11}.
+
 Os filtros adaptativos de predição de errro (FPE) podem ser utilizados para regularizar os dados sísmicos,
 de modo a produzir uma amostragem suficiente para o estabelecimento das seções ERC.
 Como representado na Figuras \ref{fig:3.1}, a trajetória ERC calculada para cada $m_0$ não
