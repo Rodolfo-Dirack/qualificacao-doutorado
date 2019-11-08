@@ -41,6 +41,21 @@ dos dados conhecidos com o FPE desconhecido. Segundo, os dados interpolados
 são estabelecidos a partir da minimização da convolução do FPE anteriormente 
 calculado com o modelo conhecido, restringido pelos dados conhecidos. \cite{curry}.
 
+Contudo, a busca dos coeficientes do filtro PEF necessita evitar equações regressivas que envolvam as fronteiras ou dados ausentes. Isto pode ser feito
+criando uma máscara de seleção K(t,x), uma matriz 
+diagonal de uns nos traços originais e zeros nos traços a serem interpolados, 
+para translações causais e entradas de dados \cite{claerbout10}
+
+Os coeficientes $B_n(t,x)$ do filtro são obtidos
+solucionando o problema de mínimos quadrados \cite{liu11}:
+
+\begin{equation}
+\hat{B_n}(t,x) = \arg \min_{B_n} \left \rVert K(t,x) \left [ S(t,x) - \sum^N_{n=1}B_n(t,x)S_n(t,x) \right ] \right \Arrowvert^2_2 
++ \epsilon^2 \sum^N_{n=1} \left \rVert D [ B_n(t,x) ] \right \Arrowvert^2_2
+\end{equation}
+
+Onde $S_n(t,x) = S(t-i,x-j)$, representa a tranlação causal de $S(t,x)$. 
+
 A segunda etapa também é resolvida a partir dos mínimos quadrados. Porém,
 o filtro já é conhecido e o objetivo agora é estimar os traços desconhecidos.
 A partir da seguinte formulação de um problema de mínimos quadrados \cite{liu11}:
@@ -62,7 +77,7 @@ A minimização é feita a partir do método dos gradientes-conjugados \cite{hes
 A restrição a partir da Equação \ref{eq:7.2} é utilizada como modelo inicial e restringe
 a saída utilizando os traços conhecidos em cada iteração no esquema dos gradientes-conjugados.
 O custo computacional é proporcional ao número de iterações multiplicado
-pelo tamanho do filtro, o número de amostras no tempo e no espaço $N_i x N_f x N_t x N_x$. 
+pelo tamanho do filtro, o número de amostras no tempo e no espaço $N_i \times N_f \times N_t \times N_x$. 
 Crescendo o raio de suavização na regularização decresce o número de iterações no passo da
 estimativa do filtro \cite{liu11}.
 
