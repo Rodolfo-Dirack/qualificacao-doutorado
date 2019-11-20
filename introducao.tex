@@ -35,12 +35,33 @@ do método SRC ($R_{NIP}$ e $\beta_0$).
 A principal desvantagem do método ERC é a interpolação: O empilhamento ERC necessita de 
 traços em coordenadas de PMC $m$ e meio afastamento $h$ não coincidentes com as coordenadas
 e amostragem dos dados adquiridos.
+O objetivo desta pesquisa é propor uma metodologia de inversão do modelo de velocidades utilizando o método ERC para
+a obtenção da seção empilhada. 
 
-O objetivo desta pesquisa é propor uma metodologia de interpolção para o empilhamento ERC 
-a partir dos parâmetros extraídos da superfície de tempo de trânsito SRC. Utilizaremos o 
-algoritmo Very Fast Simulated Aneeling (VFSA) para obter os parâmetros do SRC de afastamentos nulo.
-Traçaremos a trajetória ERC no plano $m, h$ para estabelecer as coordenadas dos traços sobre a curva.
-Interpolaremos os dados adiquiridos utilizando os filtros adaptativos de predição de erro. E montaremos
-o a família ERC para cada $m_0$ e trajetória ERC determinada na etapa anterior. Finalizadas estas etapas,
-obteremos a seção empilhada ERC a partir do empilhamento sobre uma curva de tempo de trânsito ERC, determinada
-para cadar par $m_0, t_0$, sobre as famílias ERC.
+Propomos a seguinte estratégia de interpolação para a obtenção da seção empilhada ERC:
+O algoritmo Very Fast Simulated Aneeling (VFSA) é utilizado para obter os parâmetros do SRC de afastamentos nulo
+$R_{NIP}$ e $\beta_0$. Como a obtenção de tais parâmetros é um subproduto do empilhamento SRC esta etapa é comum
+aos dois métodos, possibilitanto que os dois sejam realizados em fluxos de trabalho independentes que compartilham os 
+mesmos parâmetros, não sendo necessário nenhum procedimento além do usual para o empilhamento SRC convencional.
+A trajetória ERC é traçada no plano $m, h$ para estabelecer as coordenadas dos traços pertencentes à família ERC
+com uma equação que descreve a trajetória e o a equação de tempo de trânsito ERC \cite{cre}.
+Interpolaremos os dados adiquiridos utilizando os filtros adaptativos de predição de erro (FPE) no domínio PMC \cite{liu11}.
+Esta etapa possibilita a amostragem adequada para a obtenção das famílias ERC,
+uma para cada PMC central $m_0$. 
+Finalizadas estas etapas,
+obteremos a seção empilhada ERC a partir do empilhamento das amostras sobre uma curva de tempo de trânsito ERC 
+pertencentes as famílias ERC. Esta curva é determinada para cadar par $m_0, t_0$ da seção empilhada \cite{cre}.
+
+%% Refazer este parágrafo com a estratégia de otimização do modelo de velocidades
+A principal vantagem do método ERC é não precisar de informação a priori do macromodelo de velocidades. 
+Este método poder ser utilizado na obtenção do modelo de velocidades através de alguma etapa de inversão,
+como a tomografia \cite{cre}. Para a obtenção do modelo de velocidades propomos a seguinte estratégia:
+Utilização do algoritmo de offset continuation de modo a obter um painel de velocidades para cada ponto sobre a seção
+empilhada, este modelo será otimizado de maneira iterativa através da repetição deste processo.
+
+
+
+
+
+
+
