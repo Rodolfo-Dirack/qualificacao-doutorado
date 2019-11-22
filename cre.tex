@@ -48,11 +48,11 @@ são especificados a partir da análise de coerência nos dados \cite{cre}.
 
 As coordenadas das curvas ERC, mesmo sem o conhecimento da curvatura do refletor em subsuperfície, são definidas
 a partir dos parâmetros $R_{NIP}$ e $\beta_0$, obtidos através de um processo de otimização, 
-para cada PMC central $m_0$ na seção de afastamento nulo. A Equação que descreve a trajetória ERC no plano $m,h$ \cite{cre}:
+para cada PMC central $m_0$ na seção de afastamento nulo. A Equação que descreve a trajetória ERC no plano $m, h$ \cite{cre}:
 
 \begin{equation}
  \label{eq:2.1}
- x_m= x_0 + \frac{1}{2\alpha} (1-\sqrt{1+4\alpha^2h^2})
+ m= m_0 + \frac{1}{2\alpha} (1-\sqrt{1+4\alpha^2h^2})
 \end{equation}
 
 Onde $\alpha$ é um parâmetro de assimetria que desenpenha um papel importante na seleção de pares fonte-receptor para os quais
@@ -74,6 +74,9 @@ t(m,h)= \left( \tau_0-\frac{2R_{NIP}}{v_0} \right)
 +\frac{R_{NIP}}{v_0}\sqrt{1-2\alpha(m-m_0-h)+\frac{(m-m_0-h)^2}{R_{NIP}^2}}
 \end{multline}
 
+Onde $t(m,h)$ é o tempo de trânsito de reflexão no domínio ERC para o PMC $m$ e o meio afastamento $h$.
+$v_0$ é a velocidade próxima da superfície, $\tau_0$ é o tempo de trânsito de afastamento nulo e 
+$R_{NIP}$ e $\alpha$ são os parâmetros otimizados associados a um PMC central $m_0$.
 A Equação \ref{eq:2.3} é utilizada para o empilhamento no domínio ERC. As amostras nas famílias ERC 
 que estão sobre esta curva de tempo de trânsito são empilhadas e atribuídas ao PMC central $m_0$ na seção empilhada.
 Ao realizar este processo para todos os $m_0$'s da malha obtemos a imagem na seção empilhada ERC.
