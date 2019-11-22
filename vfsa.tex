@@ -1,13 +1,13 @@
-\chapter{OTIMIZAÇÃO GLOBAL DOS PARÂMETROS DO CRS DE AFASTAMENTO NULO COM VERY FAST SIMULATED ANEELING}
+\chapter{OTIMIZAÇÃO GLOBAL DOS PARÂMETROS DO SRC DE AFASTAMENTO NULO COM VERY FAST SIMULATED ANEELING}
 \label{vfsa}
 
-O algoritmo Simulated Annealing é baseado na teoria física da formação de cristais
-através do resfriamento lento (Annealing) destes cristais, a partir do seu ponto de fusão.
-O objetivo é minimizar a função objeto $f(p)$ a patir de perturbações aleatórias do vetor de parâmetros $p$,
+O algoritmo Simulated Annealing (SA) é baseado na teoria física da formação de cristais
+através do resfriamento lento (Annealing) destes cristais, a partir do seu ponto de fusão \cite{ingber}.
+O objetivo do algoritmo é minimizar a função objeto $f(p)$ a patir de perturbações aleatórias do vetor de parâmetros $p$,
 para uma nova posição $p'$. O valor $p'$ é avaliado a partir do seguinte critério de aceitação:
 
 \begin{equation}
-\label{eq:2.8}
+\label{eq:3.1}
  \Delta f=f(p')-f(p) < 0
 \end{equation}
 
@@ -16,32 +16,33 @@ a escolha aleatória do vetor de parâmetros $p_i=(p_1,p_2,p_3,...,p_n)$. O veto
 de sua posição inicial a uma nova posição $p'_i$. Calcula-se o valor da função objeto, $f(p)$ e $f(p')$. Se $f(p')$ é
 menor que $f(p)$ significa que o valor da função objeto é menor para o vetor $p'_i$
 e a função objeto está convergindo para um mínimo. $p'_i$ é adotado como o
-novo vetor de parâmetros, repete-se o processo até que se atinja o mínimo Global.
+novo vetor de parâmetros, repete-se o processo até atingir o mínimo Global.
 
-Se a Equação \ref{eq:2.8} é verdadeira o valor de $p'$ é aceito como o novo vetor de parâmetros $p$ e o processo
-é reiniciado: Perturba-se $p$ para uma nova posição $p'$, e é avaliado se a Equação \ref{eq:2.8} permanece valida. 
+Se a Equação \ref{eq:3.1} é satisfeita o valor de $p'$ é aceito como o novo vetor de parâmetros $p$ e o processo
+é reiniciado: Perturba-se $p$ para uma nova posição $p'$, e é avaliado se a Equação \ref{eq:3.1} permanece satisfeita. 
 Ou seja, a cada nova
 iteração a função objeto deverá possuir um valor menor, até que atinja o seu valor mínimo.
 
 Todavia, a função $f(p)$ pode não convergir para o mínimo global, de modo a se manter presa
 em um mínimo local. Para tanto, o algoritmo SA permite deslocamentos ascendentes no valor de $f(p)$ a partir de um critério
-probabilístico (Critério de Metrópolis): Se $f(p')$ for maior que $f(p)$, a Equação \ref{eq:2.8} não será válida, então
+probabilístico (Critério de Metrópolis): Se $f(p')$ for maior que $f(p)$, a Equação \ref{eq:3.1} não será satisfeita, então
 a nova posição $p'$ não será aceita de imediato, devendo passar por um novo teste.
 
-Calcula-se um número $P$, dado por:
+Primeiro, calculamos um número $P$, dado por:
 
 \begin{equation}
-\label{eq:2.10}
+\label{eq:3.2}
  P=exp(\frac{-\Delta f}{T})
 \end{equation}
 
+E adotamos o seguinte critério probabilístico: 
 Se $P$ for maior do que $u$, um número aleatório entre 0 e 1, $p'_i$ será aceito, senão $p'_i$ é
 descartado e o algoritmo é reiniciado com uma nova perturbação ao vetor $p$.
 Valores baixos de $T$ e altos $\Delta f$ diminuem a probabilidade de que $p'_i$ seja aceito.
 
 O algoritmo Very
 Fast Simulated Annealing (VFSA) surgiu com o objetivo de melhorar o desempenho do algoritmo Simulated Annealing (SA). 
-Este algoritmo, também chamado de \textit{Boltzmann Annealing} (BA).
+Este algoritmo, também é chamado de \textit{Boltzmann Annealing} (BA) e
 introduz varias modificações ao
 algoritmo padrão SA \cite{ingber}.
 
@@ -49,7 +50,7 @@ No algoritmo VFSA a perturbação de cada elemento $\alpha_{k,i}$ na dimensão $
 segundo a relação \cite{klaus}:
 
 \begin{equation}
-\label{eq:2.11}
+\label{eq:3.3}
  \alpha_{k+1,i}=\alpha_{k,i}+y_i(B_i-A_i)
 \end{equation}
 
@@ -57,7 +58,7 @@ Onde $\alpha_{k+1,i}$ é um novo parâmetro obtido a partir do parâmetro $\alph
 O novo parâmetro é restrito a janela:
 
 \begin{equation}
-\label{eq:2.12}
+\label{eq:3.4}
   \alpha_{k+1,i},\alpha_{k,i}\in[A_i,B_i]
 \end{equation}
 
@@ -65,19 +66,19 @@ Ou seja, $A_i$ e $B_i$ delimitam o espaço de busca dos parâmetros através da 
 $u_i$ e $y_i$ são números aleatórios distribuídos da seguinte forma:
 
 \begin{equation}
-\label{eq:2.13}
+\label{eq:3.5}
   y_i\in[-1,1]
 \end{equation}
 
 \begin{equation}
-\label{eq:2.14}
+\label{eq:3.6}
   u_i\in[0,1]
 \end{equation}
 
 O cálculo de $y_i$ é dado por:
 
 \begin{equation}
-\label{eq:2.15}
+\label{eq:3.7}
   y_i=sgn(u_i-1/2)T_i[(1+1/T_i)^{2u_i-1}-1]
 \end{equation}
 
@@ -93,12 +94,12 @@ $$sgn(t)=-1 t < 0$$
 O mínimo global pode ser obtido usando a sequência de refriamento $T_i$, definida da seguinte forma \cite{ingber}:
 
 \begin{equation}
-\label{eq:2.16}
+\label{eq:3.8}
  T_i(k)=T_{0i}exp(-C_ik^{1/n})
 \end{equation}
 
 Onde o parâmetro $T_{0i}$ é a temperatura inicial, e $C_i$ é um parâmetro livre para controle do decaimento e ajuste ao
-problema \cite{klaus}. O pseudo-código do algoritmo VFSA \cite{stoffa} é apresentado no pseudo código abaixo:
+problema \cite{klaus}. O pseudo-código do algoritmo VFSA é apresentado abaixo \cite{stoffa}:
 
 \vspace{\onelineskip} 
 
@@ -169,9 +170,13 @@ proposto para obtenção dos parâmetros do SRC de afastamento nulo.}
 \label{fig:2.1}
 \end{figure}
 
-Podemos utilizar o semblance (coerência) no algoritmo VFSA como critério de convergência na Equação \ref{eq:2.8}
-para determinar os parâmetros do SRC otimizados. Utilizando uma aproximação de tempo de trânsito SRC,
-a coerência será máxima quando o ajuste entre a aproximação de tempo de trânsito e os dados adquiridos
+Podemos utilizar o semblance (coerência) no algoritmo VFSA como critério de convergência na Equação \ref{eq:3.1}
+para determinar os parâmetros do SRC $R_N$, $R_{NIP}$ e $\beta_0$. Os dois últimos parâmetros são utilizados também 
+no método ERC.
+
+Utilizando uma aproximação de tempo de trânsito SRC, medimos a coerência entre esta aproximação e os
+dados no domínio $m, h$, para uma tripla $R_N$, $R_{NIP}$ e $\beta_0$.
+A coerência será máxima quando o ajuste entre a aproximação de tempo de trânsito e os dados
 for a melhor possível, os parâmetros do SRC que produzirem o melhor ajuste serão o resultado da otimização.
 
 O semblance é uma medida de coerência baseada na soma da energia de traços adjacentes, se os traços alinhados são similares,
@@ -183,6 +188,6 @@ longo de uma janela de $N$ amostras, na posição $x_j$ e no tempo $t_i$, é dad
  S_{NM}=\frac{ \sum_{i=1}^N [\sum_{j=1}^M x_j(t_i)]}{M \sum_{i=1}^N \sum_{j=1}^Mx^2_{j}}
 \end{equation}
 
-O semblance é a energia da soma dos valores dos traços dividida pela soma da energia dos traços \cite{seg}. 
-Seu valor máximo é 1 e o mínimo é 0.
+O semblance é a energia da soma dos valores dos traços dividida pela soma da energia dos traços. 
+Seu valor máximo é 1 e o mínimo é 0 \cite{seg}.
 
