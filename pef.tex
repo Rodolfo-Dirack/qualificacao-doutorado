@@ -15,6 +15,7 @@
 % Licença: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 
 \chapter{FILTROS ADAPTATIVOS DE PREDIÇÃO DE ERRO (FPE)}
+\label{cap4}
 
 Uma restrição comumente utilizada na interpolação de traços sísmicos
 é assegurar que os dados interpolados, depois da filtragem,
@@ -31,7 +32,7 @@ filtros adaptativos de predição de erro (FPE) do dado \cite{spitz}.
 Os FPE, também conhecidos como filtros de autoregressão, desenpenham o
 papel da ``matriz inversa de covariância'' da teoria das estimativas na estatística.
 O sinal é regredido sobre si mesmo na estimativa dos coeficientes do filtro. O FPE
-pode ser implementado na domínio tempo-espaço ou frequency-espaço. FPE no tempo-espaço
+pode ser implementado no domínio tempo-espaço ou frequência-espaço. Os FPE no tempo-espaço
 são menos propensos a criar eventos espúrios na presença de ruído do que os filtros
 frequência-espaço \cite{abma}. 
 
@@ -39,10 +40,11 @@ A utilização dos FPE na interpolação ocorre em dois passos:
 Primeiro, o FPE é estimado através da minimização da saída da convolução
 dos dados conhecidos com o FPE desconhecido. Segundo, os dados interpolados
 são estabelecidos a partir da minimização da convolução do FPE anteriormente 
-calculado com o modelo conhecido, restringido pelos dados conhecidos. \cite{curry}.
+calculado com o modelo conhecido, restringido pelos dados conhecidos \cite{curry}.
 
-Contudo, a busca dos coeficientes do filtro PEF necessita evitar equações regressivas que envolvam as fronteiras ou dados ausentes. Isto pode ser feito
-criando uma máscara de seleção K(t,x), uma matriz 
+Contudo, a busca dos coeficientes do FPE necessita evitar equações regressivas que 
+envolvam as fronteiras ou dados ausentes. Isto pode ser feito
+criando uma máscara de seleção $K(t,x)$, uma matriz 
 diagonal de uns nos traços originais e zeros nos traços a serem interpolados, 
 para translações causais e entradas de dados \cite{claerbout10}
 
@@ -50,31 +52,81 @@ Os coeficientes $B_n(t,x)$ do filtro são obtidos
 solucionando o problema de mínimos quadrados \cite{liu11}:
 
 \begin{equation}
+\label{eq:4.1}
 \hat{B_n}(t,x) = \arg \min_{B_n} \left \rVert K(t,x) \left [ S(t,x) - \sum^N_{n=1}B_n(t,x)S_n(t,x) \right ] \right \Arrowvert^2_2 
 + \epsilon^2 \sum^N_{n=1} \left \rVert D [ B_n(t,x) ] \right \Arrowvert^2_2
 \end{equation}
 
 Onde $S_n(t,x) = S(t-i,x-j)$, representa a tranlação causal de $S(t,x)$. 
+$D$ é um operador de regularização e $\epsilon$ é um parâmetro de regularização escalar.
+
+Se $D$ for definido como um operador linear, a estimativa através dos mínimos quadrados se reduz a uma
+inversão linear \cite{liu11, fomel2009}.
+
+\begin{equation}
+ b = A^{-1} d
+\end{equation}
+
+Onde:
+
+\begin{equation}
+ b = \left[ B_1(t,x)\:\: B_2(t,x)\:\: ...\:\: B(t,x) \right]^T
+\end{equation}
+
+\begin{equation}
+ d = \left[ S_1(t,x)S(t,x)\:\: S_2(t,x)S(t,x)\:\: ... \:\: S_N(t,x)S(t,x) \right]^T
+\end{equation}
+
+E os elementos da matriz $A$ são:
+
+\begin{equation}
+ A_{nk}(t,x) = S_n(t,x)S_k(t,x) + \epsilon^2 \delta_{nk}D^TD
+\end{equation}
+
+Ao incorporar um operador de suavização $G$ ao invés de $D$ estabelecemos uma janela de suavização
+dado o tamanho e a forma do filtro $B_n(t,x)$ e o raio da janela de suavização no espaço e no tempo em $G$ \cite{fomel2007}.
+Os coeficientes do filtro nos traços zerados intercalados aos traços originais estão assim restringidos pelos limites
+da janela de suavização, dando maior peso aos traços mais próximos.
+
+Isto é feito definindo $G$ como um operador de suavização gaussiano com raio ajustável, obrido através da
+aplicação repetida de um filtro triangular e da escolha do parâmetro $\lambda$ como o valor médio de $S_n(t,x)$.
+Com estas considerações a inversão toma a forma \cite{liu11, fomel2007}:
+
+\begin{equation}
+ b = \hat{A}^{-1}\hat{d}
+\end{equation}
+
+Onde:
+
+\begin{equation}
+ \hat{d} = [ G[S_1(t,x)S(t,x)]\:\: G[S_2(t,x)S(t,x)]\:\: ...\:\: G[S_N(t,x)S(t,x)] ]^T
+\end{equation}
+
+Os elemetos da matriz $\hat{A}$ são:
+
+\begin{equation}
+ \hat{A}_{nk}(t,x) = \lambda^2 \delta_{nk} + G[S_n(t,x)S_k(t,x) - \lambda^2 \delta_{nk}]
+\end{equation}
 
 A segunda etapa também é resolvida a partir dos mínimos quadrados. Porém,
 o filtro já é conhecido e o objetivo agora é estimar os traços desconhecidos.
-A partir da seguinte formulação de um problema de mínimos quadrados \cite{liu11}:
+A partir da seguinte formulação de um novo problema de mínimos quadrados \cite{liu11}:
 
 \begin{equation}
-\label{eq:7.1}
+\label{eq:4.2}
  \hat{S}(t,x) = \arg \min_S \left \rVert S(t,x) - \sum^N_{n=1}\hat{B}_n(t,x) S_n(t,x) \right \Arrowvert^2_2
 \end{equation}
 
 Sujeito a seguinte restrição dos traços conhecidos:
 
 \begin{equation}
-\label{eq:7.2}
+\label{eq:4.3}
  \hat{S}(t,x) = S_{known}(t,x_k)
 \end{equation}
 
 Onde $\hat{S}(t,x)$ representa a saída da interpolação.
 A minimização é feita a partir do método dos gradientes-conjugados \cite{hestenes}. 
-A restrição a partir da Equação \ref{eq:7.2} é utilizada como modelo inicial e restringe
+A restrição a partir da Equação \ref{eq:4.3} é utilizada como modelo inicial e restringe
 a saída utilizando os traços conhecidos em cada iteração no esquema dos gradientes-conjugados.
 O custo computacional é proporcional ao número de iterações multiplicado
 pelo tamanho do filtro, o número de amostras no tempo e no espaço $N_i \times N_f \times N_t \times N_x$. 
