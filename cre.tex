@@ -13,8 +13,8 @@
 % 
 % Licença: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 
-\chapter{EMPILHAMENTO ELEMENTO DE REFLEXÃO COMUM (ERC)}
-\label{cap2}
+\chapter{EMPILHAMENTO POR ELEMENTO DE REFLEXÃO COMUM (ERC)}
+\label{cap:cre}
 
 O método empilhamento Elemento de Reflexão Comum (ERC) é uma alternativa para os métodos de empilhamento PMC ou
 migração para a seção de afastamento nulo. Não requer conhecimento do modelo geral em subsuperfície, apenas
@@ -71,7 +71,6 @@ reflexão \cite{cre}:
 \label{eq:2.3}
 t(m,h)= \left( \tau_0-\frac{2R_{NIP}}{v_0} \right) 
 +\frac{R_{NIP}}{v_0}\sqrt{1-2\alpha(m-m_0+h)+\frac{(m-m_0+h)^2}{R_{NIP}^2}} \\
-+\frac{R_{NIP}}{v_0}\sqrt{1-2\alpha(m-m_0-h)+\frac{(m-m_0-h)^2}{R_{NIP}^2}}
 \end{multline}
 
 Onde $t(m,h)$ é o tempo de trânsito de reflexão no domínio ERC para o PMC $m$ e o meio afastamento $h$.
@@ -113,15 +112,17 @@ eixos.
 A única distribuição que pode ser amostrada regularmente no plano $m, h$ ocorre quando $\alpha=0$. Esta é
 a família de ponto médio comum do PMC $m_0$ (linha vertical com pontos em roxo na figura).
 
-Portanto, o método ERC depende de alguma estratégia de interpolação para obter os traços sísmicos sobre a trajetória ERC, já
-que os pontos sobre esta trajetória não fazem parte da malha dos dados adquiridos. Com o aumento da amostragem dos dados,
-através da interpolação e regularização, é possível amostrar corretamente os traços sísmicos sobre as trajetórias ERC.
+A Figura \ref{fig:2.2} mostra as coordenadas $m,h$ de várias curvas ERC hipotéticas com $\alpha$ dado pela Equação \ref{eq:2.2}.
+As curvas ERC intersectam as seções de afastamento constante (linhas horizontais) e as seções de ponto médio comum 
+(linhas verticais), não sendo posível construir uma malha regular para amostrar tais curvas.
+A única distribuição que pode ser amostrada regularmente no plano $m,h$ ocorre quando $\alpha=0$, que corresponderá
+a família de ponto médio comum de um dado $m_0$, uma linha vertical no plano (em roxo).
 
 \begin{figure}[htb]
-\caption{Representação esquemática das coordenadas de várias trajetórias ERC sobre o plano $m$ (PMC) x $h$ (meio afastamento).
-As linhas da malha representam as seções de afastamento constante (linhas horizontais) e seções PMC (linhas verticais).
-Estas trajetórias foram construídas variando $\beta_0$, $R_{NIP}$ e $\alpha$  na Equação \ref{eq:2.1}. Quando
-$\alpha=0$ a trajetória ERC será a família PMC para $m_0$.}
+\caption{Representação esquemática das coordenadas de várias trajetórias ERC sobre o plano PMC $m$ x meio afastamento
+$h$. As linhas do grid representam as seções de afastamento constante (linhas horizontais) e seções PMC (linhas verticais).
+Estas trajetórias foram construídas variando $\beta_0$, $R_{NIP}$ e $\alpha$  na Equação \ref{eq:2.2}. Quando
+$\alpha=0$ a trajetória ERC será a trajetória de uma família PMC para um PMC $m_0$.}
 \begin{center}
 \includegraphics[scale=0.5]{images/creCoord.png}
 \vspace{-0.3cm}
