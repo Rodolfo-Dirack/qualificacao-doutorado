@@ -214,7 +214,7 @@ utilizando a condição CDS ($R_N=R_{NIP}$).}
 \begin{figure}
 \caption{Seção empilhada ERC após filtragem de banda passante (Corte em 20Hz) produzida a partir do empilhamento 
 sobre a curva de tempo de trânsito SRC não hiperbólica
-utilizando a condição CDS ($R_N=R_{NIP}$).}
+utilizando a condição SDC ($R_N=R_{NIP}$).}
 \begin{center}
 \includegraphics[scale=0.4]{images/filteredStackedSectionNcrs.jpeg}
 \vspace{-0.3cm}
@@ -223,4 +223,44 @@ utilizando a condição CDS ($R_N=R_{NIP}$).}
  Fonte: Do Autor.
 \end{center}
 \label{fig:7.12}
+\end{figure}
+
+Refazendo o empilhamento para 320 $m_0$'s separados por 0.0125Km no intervalo
+$3Km<m_0<7Km$; e para 500 $t_0$'s no intervalo $1s<t_0<3s$ e amostragem de 0.004s,
+obtemos a seção empilhada nas Figuras \ref{fig:7.13}-\ref{fig:7.14}
+\footnote{A obtenção das seções empilhadas ERC foi realizada com auxílio de técnicas de computação paralela: Em um computador
+de várias CPU's, cada núcleo da CPU é responsável por um $m_0$ (Traço na seção empilhada ERC). O pacote Madagascar permite a
+paralelização utilizando a opção \textit{scons -j\#} em que o caractere '\#' representa o número 
+de núcleos disponíveis no computador.}.
+A aproximação de tempo de trânsito do SRC não hiperbólico aplicada a condição SDC
+foi utilizada como trajetória de empilhamento. A Figura \ref{fig:7.13} é o resultado logo após o empilhamento, e
+a Figura \ref{fig:7.14} foi obtida após a aplicação de um filtro banda passante de frequência máxima de corte de 20Hz
+na seção empilhada da Figura \ref{fig:7.13}.
+
+%% Figuras Empilhamento CRS não hiperbólico intervalo maior
+\begin{figure}
+\caption{Seção empilhada ERC bruta produzida a partir do empilhamento sobre a curva de tempo de trânsito SRC não hiperbólica
+utilizando a condição CDS ($R_N=R_{NIP}$).}
+\begin{center}
+\includegraphics[scale=0.4]{images/hugeStackedSection.jpeg}
+\vspace{-0.3cm}
+\end{center}
+\begin{center}
+ Fonte: Do Autor.
+\end{center}
+\label{fig:7.13}
+\end{figure}
+
+\begin{figure}
+\caption{Seção empilhada ERC após filtragem de banda passante (Corte em 20Hz) produzida a partir do empilhamento 
+sobre a curva de tempo de trânsito SRC não hiperbólica
+utilizando a condição SDC ($R_N=R_{NIP}$).}
+\begin{center}
+\includegraphics[scale=0.4]{images/hugeFiltStackedSection.jpeg}
+\vspace{-0.3cm}
+\end{center}
+\begin{center}
+ Fonte: Do Autor.
+\end{center}
+\label{fig:7.14}
 \end{figure}
