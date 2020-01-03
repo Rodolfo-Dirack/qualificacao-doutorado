@@ -14,7 +14,7 @@
 % Licença: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 
 \chapter{EMPILHAMENTO FAMÍLIAS ERC}
-\label{cap:empilhamento}
+\label{cap7:empilhamento}
 
 O empilhamento ERC foi realizado após a interpolação com filtros adaptativos de predição de erro (FPE). Esta etapa de
 interpolação permite amostrar a trajetória de tempo de trânsito ERC com um intervalo de amostragem satisfatório no
@@ -24,14 +24,15 @@ o resultado do empilhamento no domínio
 ERC é atribuído à coordenada $m_0$,$t_0$ na seção empilhada ERC, formando a imagem na seção empilhada.
 
 Para demonstrar o funcionamento do empilhamento ERC, selecionamos um único traço na coordenada $m_0=4Km$ no modelo do refletor
-gaussiano no Capítulo \ref{cap:modelagem}. O espectro de amplitude deste traço é apresentado na Figura \ref{fig:7.1}, o máximo valor de amplitude 
+gaussiano no Capítulo \ref{cap5:modeling}. O espectro de amplitude deste traço é apresentado na Figura \ref{fig:7.1},
+o máximo valor de amplitude 
 está na frequência 10Hz e corresponde a frequência pico da wavelet utilizada.
 
 Para obter o supertraço empilhado do PMC escolhido ($m_0=4Km$) foi escolhida uma janela de tempo $0<t_0<1$.
 E para cada par $m_0, t_0$ foram obtidos os parâmetros do SRC de afastamento nulo $R_{NIP}$ e $\beta_0$ 
-através da otimização global com o Very Fast Simulated Aneeling (VFSA) (Descrito no Capítulo \ref{cap3}).
+através da otimização global com o Very Fast Simulated Aneeling (VFSA) (Descrito no Capítulo \ref{cap3:vfsa}).
 
-Foi realizada a interpolação FPE para o cubo de dados do modelo do refletor gaussiano (vide Capítulo \ref{cap:modelagem}),
+Foi realizada a interpolação FPE para o cubo de dados do modelo do refletor gaussiano (vide Capítulo \ref{cap5:modeling}),
 aumentando a amostragem
 do modelo na corrdenada do PMC para 802 PMC's, e diminuindo a discretização para 0.0125Km também no domínio PMC. O processo 
 de interpolação seleciona as seções de afastamento constante no cubo de dados, intercala os traços originais da seção com traços 
@@ -116,7 +117,8 @@ ruído numérico aos dados empilhados.}
 %% Figuras seção empilhada CRE com a equação de tempo de trânsito CRE
 
 O empilhamento para um dado $m_0$, descrito acima, é realizado para um conjunto de $m_0's$ para formar a seção empilhada.
-Cada $m_0$ será um supertraço da seção, como apresentado nas Figuras \ref{fig:7.6}-\ref{fig:7.7} que apresentam 4 supertraços empilhados
+Cada $m_0$ será um supertraço da seção, como apresentado nas Figuras \ref{fig:7.6}-\ref{fig:7.7} 
+que apresentam 4 supertraços empilhados
 com $m_0$ variando entre 4Km e 5.5Km com amostragem de 0.5Km.
 
 \begin{figure}
@@ -148,14 +150,15 @@ Foram produzidas seções empilhadas com
 amostragem entre os PMC's de 0.0125Km, e 160 PMC's no intervalo de $4Km<m<5Km$. O eixo do tempo na 
 seção é o tempo de trânsito do raio normal $t_0$ com $1s<t_0<1.5s$, com 125 amostras e amostragem no tempo de 0.004s.
 Para comparação dos resultados do empilhamento, foi extraída a seção de afastamento nulo do cubo de dados do modelo do
-refletor gaussiano (Figura \ref{fig:4.2} no Capítulo \ref{cap:modelagem}) apresentada na Figura \ref{fig:7.7}.
+refletor gaussiano (Figura \ref{fig:4.2} no Capítulo \ref{cap5:modeling}) apresentada na Figura \ref{fig:7.7}.
 
 A Figura \ref{fig:7.8} é o resultado do empilhamento ERC utilizando a aproximação de tempo de trânsito ERC \ref{eq:2.3}
 como trajetória de empilhamento. O empilhamento adicionou ruído numérico nos traços da seção, por isto foi realizada a filtragem
 banda passante com a frequência máxima de corte em 20Hz. O resultado após a aplicação do filtro é apresentado na Figura
 \ref{fig:7.10}.
 
-O empilhamento também foi realizado com auxílio da aproximação de tempo de trânsito SRC não hiperbólica aplicando a condição CDS
+O empilhamento também foi realizado com auxílio da aproximação de tempo de trânsito SRC não hiperbólica
+(Equação \ref{eq:2.4}) aplicando a condição CDS
 ($R_N=R_{NIP}$). Aplicada esta condição, a curva de tempo de trânsito SRC foi utilizada como trajetória de empilhamento no domínio
 ERC, o resultado é apresentado na Figura \ref{fig:7.11}. Também foi realizada a aplicação da filtragem banda passante na seção
 empilhada com a aproximação do SRC não hiperbólico, a frequência máxima de corte utilizada foi 20Hz, o resultado é apresentado
@@ -233,7 +236,8 @@ de várias CPU's, cada núcleo da CPU é responsável por um $m_0$ (Traço na se
 paralelização utilizando a opção \textit{scons -j\#} em que o caractere '\#' representa o número 
 de núcleos disponíveis no computador.}.
 A aproximação de tempo de trânsito do SRC não hiperbólico aplicada a condição SDC
-foi utilizada como trajetória de empilhamento. A Figura \ref{fig:7.13} é o resultado logo após o empilhamento, e
+foi utilizada como trajetória de empilhamento (Equação \ref{eq:2.4}).
+A Figura \ref{fig:7.13} é o resultado logo após o empilhamento, e
 a Figura \ref{fig:7.14} foi obtida após a aplicação de um filtro banda passante de frequência máxima de corte de 20Hz
 na seção empilhada da Figura \ref{fig:7.13}.
 
