@@ -1,5 +1,5 @@
 \chapter{OTIMIZAÇÃO GLOBAL DOS PARÂMETROS DO SRC DE AFASTAMENTO NULO COM VERY FAST SIMULATED ANEELING}
-\label{cap3}
+\label{cap3:vfsa}
 
 O algoritmo Simulated Annealing (SA) é baseado na teoria física da formação de cristais
 através do resfriamento lento (Annealing) destes cristais, a partir do seu ponto de fusão \cite{ingber}.
@@ -167,7 +167,7 @@ proposto para obtenção dos parâmetros do SRC de afastamento nulo.}
 \begin{center}
  Fonte: Do Autor.
 \end{center}
-\label{fig:2.1}
+\label{fig:3.1}
 \end{figure}
 
 Podemos utilizar o semblance (coerência) no algoritmo VFSA como critério de convergência na Equação \ref{eq:3.1}
@@ -184,7 +184,7 @@ a soma dos traços adjacentes será máxima. A definição matemática de sembla
 longo de uma janela de $N$ amostras, na posição $x_j$ e no tempo $t_i$, é dada por \cite{seg}:
 
 \begin{equation}
-\label{eq:2.17}
+\label{eq:3.9}
  S_{NM}=\frac{ \sum_{i=1}^N [\sum_{j=1}^M x_j(t_i)]}{M \sum_{i=1}^N \sum_{j=1}^Mx^2_{j}}
 \end{equation}
 
@@ -197,31 +197,31 @@ intuito de melhorar a acurácia das aproximações de tempo de trânsito SRC
 para grandes afastamentos e separação entre os PMC's \cite{fomel1}.
 
 \begin{equation}
-\label{eq:4.7}
+\label{eq:3.10}
  \Phi_{CRS}(h,d;t_0)=\sqrt{\frac{F(d)+ch^2+\sqrt{F(d-h)F(d+h)}}{2}}
 \end{equation}
 
-A Equação \ref{eq:4.7} é chamada equação do CRS não-hiperbólico, pois não deriva de uma expansão em série de Taylor
+A Equação \ref{eq:3.10} é chamada equação do CRS não-hiperbólico, pois não deriva de uma expansão em série de Taylor
 de segunda ordem do tempo de trânsito. Os parâmetros 
 $a_1$, $a_2$ e $b_2$
 do CRS hiperbólico são utilizados na definição
-dos parâmetros do SRC não hiperbólico como \ref{fomel1}:
+dos parâmetros do SRC não hiperbólico como \cite{fomel1}:
 
 \begin{equation}
-\label{eq:4.8}
+\label{eq:3.11}
  c=2b_2+a_1^2-a_2
 \end{equation}
 
 \begin{equation}
-\label{eq:4.9}
+\label{eq:3.12}
  F(d-h)=(t_0+a_1(d-h))^2+a_2(d-h)^2
 \end{equation}
 
 \begin{equation}
-\label{eq:4.10}
+\label{eq:3.13}
  F(d+h)=(t_0+a_1(d+h))^2+a_2(d+h)^2
 \end{equation}
 
-O Semblance entre a superfície de tempo de trânsito da Equação \ref{eq:4.7} e os dados adiquiridos é utilizado no critério de
-convergência do algoritmo do VFSA Equação \ref{eq:3.1} em cada iteração. Os parâmetros $R_N$, $R_NIP$ e $\beta_0$ que melhor
-ajustam a superfície da Equação \ref{eq:4.7} serão os parâmetros ótimos.
+O Semblance entre a superfície de tempo de trânsito da Equação \ref{eq:3.9} e os dados adiquiridos é utilizado no critério de
+convergência do algoritmo do VFSA Equação \ref{eq:3.1} em cada iteração. Os parâmetros $R_N$, $R_{NIP}$ e $\beta_0$ que melhor
+ajustam a superfície da Equação \ref{eq:3.10} serão os parâmetros ótimos.
