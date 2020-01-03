@@ -14,9 +14,10 @@
 % Licença: GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
 
 \chapter{INTERPOLAÇÃO COM FILTROS ADAPTATIVOS DE PREDIÇÃO DE ERRO}
-\label{cap6}
+\label{cap6:interpolacao}
 
-A intepolação com FPE permite aumentar a amostragem dos dados modelados (vide Capítulo \ref{cap5}), de 401 PMC's para 802.
+A intepolação com FPE permite aumentar a amostragem dos dados modelados (vide Capítulo \ref{cap5:modeling}),
+de 401 PMC's para 802.
 e diminuir a discretização, de 0.025Km para 0.0125Km na distância entre os PMC's.
 Isto permite amostrar adequadamente as famílias ERC, com os traços da família o mais próximo possível
 das coordenadas $m$, $h$ da trajetória ERC calculada a partir da Equação \ref{eq:2.1}.
@@ -28,7 +29,7 @@ traços sobre as trajetórias ERC com a maior precisão possível.
 Antes da interpolação, os traços nas coordenadas $m$ e $h$ são separados em seções de afastamento constante, 
 cada uma com 401 PMC's.
 A interpolação com os filtros adaptativos de predição de erro (FPE) é realizada para cada seção em duas etapas,
-como descrito no Capítulo \ref{cap4}:
+como descrito no Capítulo \ref{cap4:pef}:
 
 \begin{enumerate}
  \item Intercalamos traços zerados com os traços originais da seção e calculamos os coeficientes do FPE
@@ -54,7 +55,7 @@ Estes pontos são as coordendas dos traços que pertencem à trajetória ERC, po
 Por fim, buscamos nas seções interpoladas
 os traços sísmicos mais próximos das coordenadas calculadas anteriormente, estes traços formam as famílias ERC. 
 Cada par $m0, t_0$ possuirá uma família ERC e parâmetros $R_N$, $R_{NIP}$ e $\beta_0$; e também terá uma curva de tempo
-de trânsito ERC correspondente (calculada a partir da Equação \ref{eq:2.3}) sobre a qualserá realizado o empilhamento.
+de trânsito ERC correspondente (calculada a partir da Equação \ref{eq:2.3}), sobre esta será realizado o empilhamento.
 
 O empilhamento ERC é realizado sobre as curvas de tempo de trânsito ERC, somando as amplitudes
 das amostras sobre a curva e atribuindo esta soma aos pares $m0$, $t0$ na seção empilhada ERC.
