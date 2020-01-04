@@ -121,6 +121,7 @@ problema \cite{klaus}. O pseudo-código do algoritmo VFSA é apresentado abaixo 
 
 
 \begin{algorithm}
+\label{alg:3.1}
  \Entrada{Inicia com um valor aleatório para o parâmetro $m_0$ com uma energia $E(m_0)$}
 \Saida{Parâmetros $m_i$ do modelo otimizados}
 
@@ -214,9 +215,17 @@ Seu valor máximo é 1 e o mínimo é 0 \cite{seg}. O semblance é medido em uma
 e uma superfície de tempo de
 trânsito SRC aproximada. 
 
-O Semblance entre a superfície de tempo de trânsito ERC (Equação \ref{eq:2.3})
-ou entre a superfície de tempo de trânsito SRC não hiperbólica com condição SDC (Equação \ref{eq:2.4}) 
-e os dados modelados é utilizado no critério de
-convergência do algoritmo do VFSA Equação \ref{eq:3.1} em cada iteração. 
-Os parâmetros $R_N$, $R_{NIP}$ e $\beta_0$ que melhor
-ajustam as superfícies aproximadas aos dados serão os parâmetros ótimos.
+Para adaptar o Algoritmo \ref{alg:3.1} para o problema da otimização dos parâmetros do SRC, utilizamos a
+função Semblance como função Energia $E(m_i)$ e os parâmetros do modelo $m_i$ como o vetor
+de parâmetros $m_i={R_N,R_{NIP},\beta_0}$, escolhemos valores arbitrários para constante de amortecimento $C_0$ e
+para temperatura inicial $T_0$.
+
+Calculamos o Semblance entre uma superfície de tempo de trânsito SRC, por exemplo a
+superfície de tempo de trânsito SRC não hiperbólica (Equação \ref{eq:2.4}) 
+e os dados modelados em cada iteração. E utilizamos este valor como critério de
+convergência do algoritmo do VFSA na Equação \ref{eq:3.1} 
+
+Isto posto, o problema se torna
+uma busca do valor máximo da função energia no decorrer das iterações e por conseguinte dos parâmetros $m_i$ que
+produzem tal valor. Os parâmetros $R_N$, $R_{NIP}$ e $\beta_0$ que melhor
+ajustam a superfície aproximada aos dados serão os parâmetros ótimos.
