@@ -122,14 +122,14 @@ problema \cite{klaus}. O pseudo-código do algoritmo VFSA é apresentado abaixo 
 
 \begin{algorithm}
 \label{alg:3.1}
- \Entrada{Inicia com um valor aleatório para o parâmetro $m_0$ com uma energia $E(m_0)$}
+ \Entrada{Valor inicial arbitrário para o vetor de parâmetros $m_0$ e uma janela de busca. Temperatura inicial $T_0$.}
 \Saida{Parâmetros $m_i$ do modelo otimizados}
 
 \Repita{arrefecer a temperatura $T_0$ em $q$ iterações}{
 
-  Obtenha a temperatura $T_q$ desta iteração para $M$ parâmetros:
+  Obtenha a temperatura $T_q$ desta iteração $q$ para $M$ parâmetros:
   
-  $T=T_0*\exp(-C_0*q^{M^-1});$
+  $T_q=T_0*\exp(-C_0*q^{M^-1});$
 
     \Repita{atualizar todos os parâmetros do modelo $m_i=1,...,M$}{
 
@@ -141,7 +141,7 @@ problema \cite{klaus}. O pseudo-código do algoritmo VFSA é apresentado abaixo 
 
       $m_{new}=m_{old}+y_i(m_{max}-m_{min})$\;
 
-      $m_{min}<=m_{new}<=m_{max}$\;}
+      $m_{min}<=m_{new}\leq m_{max}$\;}
 
     Com os novos parâmetros do modelo ($m_{new}$), calcule o delta da função Energia:
     
@@ -154,7 +154,7 @@ problema \cite{klaus}. O pseudo-código do algoritmo VFSA é apresentado abaixo 
     
     $P=exp(\frac{-\Delta E}{T})$\;
 
-    \Se{ $\Delta E <= 0$}{
+    \Se{ $\Delta E \leq 0$}{
       Atualize:
       
       $m_0=m_{new}$\;
