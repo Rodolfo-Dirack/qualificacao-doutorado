@@ -103,73 +103,78 @@ problema \cite{klaus}. O pseudo-código do algoritmo VFSA é apresentado abaixo 
 
 \vspace{\onelineskip} 
 
-\begin{algorithm}[H]
-\Entrada{o proprio texto}
-\Saida{como escrever algoritmos com \LaTeX2e }
-\Inicio{
-inicializa\c{c}\~ao\;
-\Repita{fim do texto}{
-leia o atual\;
-\uIf{entendeu}{
-vá para o próximo\;
-próximo se torna o atual\;}
-\Else{volte ao início da seção\;}
+% \begin{algorithm}[H]
+% \Entrada{Inicia com um valor aleatório para o parâmetro $m_0$ com uma energia $E(m_0)$}
+% \Saida{Parâmetros $p_i$ otimizados}
+% \Inicio{
+% inicializa\c{c}\~ao\;
+% \Repita{fim do texto}{
+% leia o atual\;
+% \uIf{entendeu}{
+% vá para o próximo\;
+% próximo se torna o atual\;}
+% \Else{volte ao início da seção\;}
+% }
+% }
+% \caption{O pseudo-código do algoritmo Very Fast Simulated Annealing (VFSA).}
+% \end{algorithm}
+
+
+\begin{algorithm}
+ \Entrada{Inicia com um valor aleatório para o parâmetro $m_0$ com uma energia $E(m_0)$}
+\Saida{Parâmetros $m_i$ do modelo otimizados}
+
+\Repita{arrefecer a temperatura $T_0$ em $q$ iterações}{
+
+  Obtenha a temperatura $T_q$ desta iteração para $M$ parâmetros:
+  
+  $T=T_0*\exp(-C_0*q^{M^-1});$
+
+    \Repita{atualizar todos os parâmetros do modelo $m_i=1,...,M$}{
+
+      Obtenha um número aleatório $u_i \in U[0,1]$\;
+
+      Obtenha a perturbação do parâmetro $y_i=sgn(u_i-\frac{1}{2})T_i'[(1+T_i')^{2u_i-1}-1]$\;
+
+      Perturbe o parâmetro dentro da janela de busca:
+
+      $m_{new}=m_{old}+y_i(m_{max}-m_{min})$\;
+
+      $m_{min}<=m_{new}<=m_{max}$\;}
+
+    Com os novos parâmetros do modelo ($m_{new}$), calcule o delta da função Energia:
+    
+    $\Delta E=E(m_{new})-E(m_0)$\;
+    
+    \Se{$E(m_{new})>E(m_0)$}{
+    Guarde os parâmetros atuais ($m_{new}$)\;}
+
+    Para atualizar utilize o critério probabilístico de aceitação (critério de Metropolis):
+    
+    $P=exp(\frac{-\Delta E}{T})$\;
+
+    \Se{ $\Delta E <= 0$}{
+      Atualize:
+      
+      $m_0=m_{new}$\;
+
+      $E(m_0)=E(m_{new})$\;}
+
+    \Se{ $\Delta E > 0$}{
+      Escreva um numero aleatório $r=U[0,1]$\;
+
+      \Se{ $P > 0$}{
+	Atualize:
+	
+	$m_0=m_{new}$\;
+
+	$E(m_0)=E(m_{new})$\;}
+
+    }
+
 }
-}
-\caption{Como escrever algoritmos no \LaTeX2e}
+\caption{O pseudo-código do algoritmo Very Fast Simulated Annealing (VFSA).}
 \end{algorithm}
-
-Inicia com um valor aleatório para o parâmetro $m_0$ com uma energia $E(m_0)$
-
-laço sobre a temperatura $T$
-
-* laço sobre um incremento aleatório sobre a temperatura $T$
-
-* * laço sobre parâmetros do modelo $i=1,...,NM$
-
-* * * $u_i \in U[0,1]$
-
-* * * $y_i=sgn(u_i-\frac{1}{2})T_i'[(1+T_i')^{2u_i-1}-1]$
-
-* * * $m_{new}=m_{old}+y_i(m_{max}-m_{min})$
-
-* * * $m_{min}<=m_{new}<=m_{max}$
-
-* * fim do laço
-
-* * agora temos um novo parâmetro $m_{new}$
-
-* * $\Delta E=E(m_{new})-E(m_0)$
-
-* * $P=exp(\frac{-\Delta E}{T})$
-
-* *
-
-* * Se $\Delta E <= 0$, faça
-
-* * * $m_0=m_{new}$
-
-* * * $E(m_0)=E(m_{new})$
-
-* * fim do Se
-
-* * se $\Delta E > 0$, faça
-
-* * * escreva um numero aleatório $r=U[0,1]$
-
-* * * se $P > 0$, faça
-
-* * * * $m_0=m_{new}$
-
-* * * * $E(m_0)=E(m_{new})$
-
-* * * fim do Se
-
-* * fim do Se
-
-* fim do laço
-
-fim do laço
 
 \vspace{\onelineskip} 
 
