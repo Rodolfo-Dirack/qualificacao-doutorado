@@ -103,6 +103,22 @@ problema \cite{klaus}. O pseudo-código do algoritmo VFSA é apresentado abaixo 
 
 \vspace{\onelineskip} 
 
+\begin{algorithm}[H]
+\Entrada{o proprio texto}
+\Saida{como escrever algoritmos com \LaTeX2e }
+\Inicio{
+inicializa\c{c}\~ao\;
+\Repita{fim do texto}{
+leia o atual\;
+\uIf{entendeu}{
+vá para o próximo\;
+próximo se torna o atual\;}
+\Else{volte ao início da seção\;}
+}
+}
+\caption{Como escrever algoritmos no \LaTeX2e}
+\end{algorithm}
+
 Inicia com um valor aleatório para o parâmetro $m_0$ com uma energia $E(m_0)$
 
 laço sobre a temperatura $T$
