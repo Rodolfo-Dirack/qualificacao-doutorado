@@ -274,31 +274,47 @@ Leonardo Reis, Hugo Souza, Diogo Rezende, Antônio Rizimar e Raphael Di Carlo.
 
 \begin{resumo}[\fontsize{12pt}{\baselineskip}\textbf{RESUMO}]
 \OnehalfSpacing
-O método do elemento de reflexão comum (ERC) é uma alternativa para os métodos
-usuais de empilhamento ou migração para a seção de afastamento nulo. Porém, diferente do empilhamento 
-convencional, em que os pares são dispostos em famílias de ponto médio comum (PMC) de maneira simétrica ao 
-PMC central, a disposição dos pares fonte-receptor é assimétricamente disposta em famílias ERC. 
-Haverá pontos sobre a curva ERC onde não existem dados adiquiridos e será necessário realizar a interpolação. 
-Assim, o empilhamento ERC pode ser realizado, mesmo a partir de uma 
-aquisição sísmica convencional e de dados organizados em famílias PMC.
- \vspace{\onelineskip} 
+
+Neste trabalho, propomos uma metodologia de inversão do modelo de velocidades pós empilhamento, a partir dos
+parâmetros do SRC de afastamento nulo $R_N$, $R_{NIP}$ e $\beta_0$ e da seção empilhada, obtidos no empilhamento ERC.
+O método do elemento de reflexão comum (ERC) possui a vantagem de 
+não necessitar do conhecimento a priori do modelo de velocidades na obtenção da seção empilhada.
+Apenas a velocidade próxima à superfície é requerida. 
+Este método proporciona parâmetros importantes para a obtenção do
+macromodelo de velocidades na etapa de inversão subsequente.
+Utilizamos a aproximação do SRC não hiperbólico para
+obter os parâmetros do SRC de afastamento nulo através da otimização global com o algoritmo Very Fast Simulated Aneeling (VFSA),
+e calculamos a curva de empilhamento aplicando a condição SDC ($R_N=R{NIP}$) à esta aproximação.
+Obtemos as famílias ERC através da regularização dos dados, aumentando a amostragem das seções de afastamento constante
+com a interpolação com filtros adaptativos de predição de erro (FPE) e calculamos as trajetórias ERC 
+no plano Ponto médio comum x afastamento em função de dos parâmetros $R_{NIP}$ e $\beta_0$.
+
+\vspace{\onelineskip} 
  \noindent
- \par Palavras-chave: Empilhamento Superfície de Reflexão Comum (SRC). Aproximações não hiperbólicas do tempo de trânsito SRC. 
- Interpolação Elemento de Reflexão Comum (ERC). 
+ \par Palavras-chave: Inversão do modelo de velocidades. Aproximações não hiperbólicas do tempo de trânsito SRC. 
+ Empilhamento Elemento de Reflexão Comum (ERC). 
 \end{resumo}
 
 \begin{resumo}[\fontsize{12pt}{\baselineskip}\textbf{ABSTRACT}]
 \OnehalfSpacing
-The common reflection element method (CRE) is an alternative to usual stacking and migration methods 
-in zero offset section domain. Besides convencional stacking, wich source receiver pairs are simetricaly distributed into common 
-midpoint gathers (CMP) in the neighboorhood of a central CMP, in CRE gathers the disposition of 
-source-receiver pairs is assimetric. There are points in CRE curve where there is no data and interpolation is crucial. 
-So, CRE gather interpolation can be used to provide information data 
-and allow CRE stacking, despite convencional CMP gather as input.
+
+In this work, we propose a new methodology of post stack velocity model inversion, from zero offset CRS parameters
+$R_N$, $R_{NIP}$ e $\beta_0$ and stacking section obtained during CRE stacking process.
+The main advantage of the CRE method is it does not need a priori knowledge of the macro velocity model to obtain the
+stacking section. Only near surface velocity information is required.
+This method brings important parameters to the macrovelocity model in the inversion step.
+We use the non hyperbolic CRS approximation to obtain the zero offset 
+CRS parameters through the Very Fast Simulated Aneeling (VFSA)
+global optimization algorithm, and calculate the stacking curve applying the 
+CDS condition ($R_N=R{NIP}$) in this approximantion.
+We obtain the CRE Gathers through data regularization, increasing the constant offset gathers sampling with
+non adaptative prediction error filters interpolation (PEF) and calculating the seismic traces in the CRE trajectory in the 
+CMP x Offset plane in function of the $R_{NIP}$ and $\beta_0$ parameters.
+
 \vspace{\onelineskip} 
 \noindent 
-\par Keywords: Padé approximants. Common Reflection Surface (CRS) stacking. Non Hyperbolic CRS.
-Common Reflection Element (CRE) interpolation.
+\par Keywords: Padé approximants. Velocity model inversion. Non Hyperbolic CRS.
+Common Reflection Element (CRE) stacking.
 \end{resumo}
 
 \renewcommand{\listfigurename}{\fontsize{12pt}{\baselineskip}\textbf{LISTA DE ILUSTRAÇÕES}}
