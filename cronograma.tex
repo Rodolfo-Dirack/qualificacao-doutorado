@@ -7,56 +7,63 @@
 A seguir a descrição das etapas concluídas e o cronograma:
 
   \begin{enumerate}
-   \item  Pesquisa e fundamentação teórica: Pesquisa das principais referências e estabelecimento do tema central da tese.
-   \item   Modelagem Kirchhoff: Utilização do algoritmo de modelagem do pacote Madagascar\footnote{Madagascar é um pacote
+   \item  Testes preliminares do algoritmos, Pesquisa e fundamentação teórica (09/2017 - 08/2019): Produção de testes 
+   de implementação
+   dos algoritmos utilizados e primeiras versões dos algoritmos originais do Autor.
+   Pesquisa das principais referências teóricas e estabelecimento do tema central da tese.
+   \item   Modelagem Kirchhoff (09/2019): Utilização do algoritmo de modelagem 
+   do pacote Madagascar\footnote{Madagascar é um pacote
    de procesamento sísmico 'open source' disponível em \url{http://www.ahay.org/wiki/Main_Page}.}
    \textit{sfkirmod} para produzir os dados do modelo do refletor
    gaussiano.
-    \item Obtenção dos parâmetros do SRC utilizando o VFSA: Programa \textit{sfvfsacrenh} escrito  pelo Autor
+    \item Obtenção dos parâmetros do SRC utilizando o VFSA (09/2019): Programa \textit{sfvfsacrenh} escrito  pelo Autor
     em linguagem C e adaptado para o pacote Madagascar
    baseado no algoritmo Very Fast Simulated Aneeling \cite{ingber}. O algoritmo ajusta a superfície de tempo de trânsito
    do SRC não hiperbólico (Equação \ref{eq:2.4}) aos dados modelados. Os parâmetros do SRC que produzem o melhor ajuste são
    os parâmetros otimizados.
-    \item  Interpolação do cubo de dados com FPE: Interpolação das seções de afastamento constante extraídas dos dados modelados
+    \item  Interpolação do cubo de dados com FPE (09/2019): Interpolação das seções de
+    afastamento constante extraídas dos dados modelados
     (chamado ``cubo de dados'') a partir de Filtros Adaptativos de Predição de Erro
     com os programas \textit{sfapef} e \textit{sfmiss4} do pacote Madagascar.
     Esta interpolação permite a discretização
     suficiente dos traços no domínio do PMC para possibilitar a correta amostragem das famílias ERC.
-    \item  Cálculo das trajetórias ERC: Programa \textit{sfcretrajec} desenvolvido pelo Autor em linguagem C 
+    \item  Cálculo das trajetórias ERC (09/2019): Programa \textit{sfcretrajec} desenvolvido pelo Autor em linguagem C 
     e adaptado para o pacote Madagascar para
     o cálculo das trajetorias ERC baseado na Equação \ref{eq:2.1}.
-     \item Obtenção das famílias ERC: Programa \textit{sfgetcregather} desenvolvido pelo Autor em linguagem C 
+     \item Obtenção das famílias ERC (09/2019): Programa \textit{sfgetcregather} desenvolvido pelo Autor em linguagem C 
      e adaptado para o pacote Madagascar para a
      determinação dos traços sísmicos do cubo de dados que estão sobre as trajetorias ERC previamente calculadas na etapa anterior.
      Estes traços formam as famílias ERC.
-    \item  Cálculo das curvas de empilhamento ERC: Programa \textit{sfgetcretimecurve} desenvolvido pelo Autor 
+    \item  Cálculo das curvas de empilhamento ERC (10/2019): Programa \textit{sfgetcretimecurve} desenvolvido pelo Autor 
     em linguagem C e adaptado 
     para o pacote Madagascar para a determinação das curvas de tempo de trânsito ERC com auxílio das 
     Equações \ref{eq:2.3}-\ref{eq:2.4}.
-     \item Paralelização do algoritmo com scons: Utilização de técnicas de computação paralela para melhorar o desempenho
+     \item Paralelização do algoritmo com scons (12/2019): Utilização de técnicas de computação paralela para 
+     melhorar o desempenho
      dos algoritmos desenvolvidos. O pacote Madagascar permite a Paralelização dos processos realizados a partir da execução
      com o comando \textit{scons -j\#} onde '\#' representa o número de núcleos utilizados.
-    \item  Empilhamento e seção empilhada ERC: Programa \textit{sfcrestack} desenvolvido pelo Autor em linguagem C e adaptado 
+    \item  Empilhamento e seção empilhada ERC (12/2019): Programa \textit{sfcrestack} 
+    desenvolvido pelo Autor em linguagem C e adaptado 
     para o pacote Madagascar para a obtenção da seção  empilhada ERC.
   \end{enumerate}
 
     \begin{table}[H]
-      \caption{Cronograma de trabalho das etapas já consluídas.}
+      \caption{Cronograma de trabalho das etapas já concluídas em cada mês do ano de 2019.}
       \centering
       
-      \begin{tabular}{|c|c|c|}
+      \begin{tabular}{|p{6cm}|c|c|c|c|c|}%{|c|c|c|c|c|c|}
 
-      \hline
-      \textbf{Etapas concluídas} & 2 & 3 \\ \hline
-      Pesquisa e fundamentação teórica & x & x \\ \hline
-      Modelagem Kirchhoff & x & x \\ \hline
-      Obtenção dos parâmetros do SRC utilizando o VFSA & x & x \\ \hline
-      Interpolação do cubo de dados com FPE & x & x \\ \hline
-      Cálculo das trajetórias ERC & x & x \\ \hline
-      Obtenção das famílias ERC & x & x \\ \hline
-      Cálculo das curvas de empilhamento ERC & x & x \\ \hline
-      Paralelização do algoritmo com scons & x & x \\ \hline
-      Empilhamento e seção empilhada ERC & x & x  \\
+     \hline
+      \textbf{Etapas concluídas} & 08/19 & 09/19 & 10/19 & 11/19 & 12/19 \\ \hline
+      Pesquisa e fundamentação teórica & x & & &  & \\ \hline
+      Modelagem Kirchhoff & & x & &  & \\ \hline
+      Obtenção dos parâmetros do SRC utilizando o VFSA & & x & &  & \\ \hline
+      Interpolação do cubo de dados com FPE & & x & &  & \\ \hline
+      Cálculo das trajetórias ERC & & x & &  & \\ \hline
+      Obtenção das famílias ERC & & x & &  & \\ \hline
+      Cálculo das curvas de empilhamento ERC & & & x & & \\ \hline
+      Paralelização do algoritmo com scons & & & & & x \\ \hline
+      Empilhamento e seção empilhada ERC & & & &  & x \\
       \hline
       
       \end{tabular}
