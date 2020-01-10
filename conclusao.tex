@@ -1,2 +1,27 @@
 \chapter{CONCLUSÃO}
 \label{cap10:conclusao}
+
+As etapas já concluídas demonstram a que o método ERC pode ser utilizado para a obtenção da seção empilhada sem a necessidade
+de informação a priori sobre o modelo de velocidades ou de uma etapa de análise de velocidades. Para melhor corroborar esta 
+afirmação é necessário reproduzir o exeperimento aqui descrito com outros modelos iniciais, além do modelo do refletor gaussiano
+aqui utilizado, e obter a seção de afastamento nulo.
+
+Da forma como o algoritmo foi produzido, este deve ser capaz de produzir a seção empilhada mesmo para modelos de múltiplos refletores
+com distribuições mais complexas de velocidade.
+modelagem de outros modelos
+
+Nos resultados do empilhamento ERC no Capítulo \ref{cap7:empilhamento}, observamos que a forma do evento de reflexão na seção
+de afastamento nulo foi mantida pelo empilhamento e as amplitudes foram realçadas. Porém, para testar como o algoritmo reage
+a dados com ruído, é necessário reproduzir o experimento com diversos níveis de ruído aleatório adicionado aos dados modelados.
+
+Outra observação é a de que o processo de empilhamento ERC adiciona ruído numérico aos traços da seção empilhada. Uma forma de
+atenuar este ruído seria buscar uma maior precição na determinação dos traços das famílias ERC: Aumentando a precisão das variáveis
+nos programas (passando do tipo \textit{float} para \textit{double}, por exemplo), e realizando a interpolação e regularização
+mais de uma vez nos dados modelados até que a discretização seja satisfatória.
+
+Enfim, os resultados deste trabalho serão publicados em dois artigos científicos: O primeiro baseado 
+nos resultados obtidos e e os que 
+serão obtidos da repetição deste experimento para modelos mais complexos, este irá focar no método ERC e na obtenção da seção
+empilhada ERC a partir da aplicação da condição SDC à aproximação não hiperbólica do tempo de trânsito SRC (Equação \ref{eq:2.4}).
+O segundo artigo irá tratar da inversão do modelo de velocidades a partir da metodologia de inversão aqui proposta
+no Capítulo \ref{cap8:velocidades}.
