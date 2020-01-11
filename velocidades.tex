@@ -1,2 +1,27 @@
 \chapter{INVERSÃO DO MODELO DE VELOCIDADES}
 \label{cap8:velocidades}
+
+Propomos a seguinte metodologia para a inversão do modelo de velocidades e cumprimento do objetivo da tese:
+Utilizar a simulação de resposta de difrações com a aproximação de tempo de trânsito ERC (Equação \ref{eq:2.3}) ou
+a aproximação de tempo de trânsito do SRC não hiperbólico (Equação \ref{eq:2.4}), 
+com aplicação da condição SDC ($R_N=R_{NIP}$),
+para simular as difrações \cite{diffractions}.
+
+O conceito de determinação da velocidade através da simulação de resposta de difração
+consiste dos seguintes passos \cite{diffractions}:
+
+\begin{enumerate}
+ \item Determinação da velocidade NMO: Isto pode ser feito em cascata nos pontos da
+seção empilhada, camada por camada otimizando a velocidade uma camada por vez.
+\item Determinação dos slopes de reflexão de afastamento nulo no cubo de dados empilhados: 
+Este passo não será necessário na nova metodologia.
+\item Transformação dos traços zero offset selecionados em respostas de pontos difratores em CDP's
+selecionados.
+\item Aplicação da migração em profundidade pós empilhamento com análise de velocidades
+em looping.
+\end{enumerate}
+
+Utilizando cada CMP da malha do modelo como um ponto espalhador de energia (Ponto difrator), propomos 
+simular uma fonte pontual explosiva e obter a seção empilhada com várias hipérboles de difração. 
+Daí utilizaremos a metodologia do artigo Post-stack velocity analysis by separation and imaging of seismic 
+diffractions para a obtenção das velocidades de migração.
