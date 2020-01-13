@@ -23,5 +23,20 @@ em looping.
 
 Utilizando cada CMP da malha do modelo como um ponto espalhador de energia (Ponto difrator), propomos 
 simular uma fonte pontual explosiva e obter a seção empilhada com várias hipérboles de difração. 
-Daí utilizaremos a metodologia do artigo Post-stack velocity analysis by separation and imaging of seismic 
-diffractions para a obtenção das velocidades de migração.
+
+Depois realizaremos a análise de velocidades automatizada no domínio pós empilhado e o imageamento de alta resolução
+para heterogeneidades de pequena escala produzindo imagens migradas no tempo com as hipérboles de difração
+focalizadas. Este processo contará com a análise automatizada de focalização para a detecção das
+velocidades de migração ótimas para imageamento das hipérboles de difração simuladas \cite{sep_dif}.
+
+A migração será realizada a partir de um algoritmo de continuação de velocidades \cite{fomel2003a}, um método que performa
+a análise de velocidade de migração em tempo continuando imagens sísmicas na velocidade, também chamado de
+``ondas imagem'' \cite{hubral1996}. A teoria da continuação de velocidades mostra ser possível realizar a migração no tempo
+com um conjunto de diferentes velocidades fazendo pequenos incrementos na velocidade diretamente no domínio da imagem.
+Implementaremos através de um algoritmo baseado na tranformada rápida de Fourier \cite{bfomel2003}.
+
+Aplicaremos uma medida de focalização local para obter os painéis de velocidade de migração para cada ponto no domínio da
+imagem. E realizaremos a análise de velocidades automatizada, com a principal diferença de que a informação sobre a velocidade
+será obtida da análise da medida de focalização das difrações ao invés da coerência \cite{sep_dif}.
+Os resultados obtidos são as velocidades de migração que melhor focalizam as hipérboles da seção simulada e tangente as hipérboles
+aparecerá a imagem do refletor.
