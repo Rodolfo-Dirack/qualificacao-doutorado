@@ -21,8 +21,14 @@ selecionados.
 em looping.
 \end{enumerate}
 
-Utilizando cada CMP da malha do modelo como um ponto espalhador de energia (Ponto difrator), propomos 
-simular uma fonte pontual explosiva e obter a seção empilhada com várias hipérboles de difração. 
+A partir da seção empilhada ERC transformamos cada par $m_0, t_0$ sobre um refletor em uma resposta simulada de
+uma fonte pontual (Ponto difrator) na forma de hipérboles de difração. Escolhido um par $m_0, t_0$, ele terá um par
+de parâmetros $R_{NIP}, \beta_0$ que possibilitam traçar uma hipérbole de difração a partir da aproximação do SRC
+não hiperbólico utilizando a condição SDC ($R_N=R_{NIP}$).
+
+Espalhando o valor de amplitude do ponto escolhido na seção empilhada $A(m_0,t_0)$ sobre a hipérbole de difração
+previamente calculada, teremos a resposta simulada de uma difração \cite{diffractions}. A inversão do modelo de velocidades
+se torna a busca pelas velocidades de migração que melhor focalizam as hipérboles de difração simuladas.
 
 Depois realizaremos a análise de velocidades automatizada no domínio pós empilhado e o imageamento de alta resolução
 para heterogeneidades de pequena escala produzindo imagens migradas no tempo com as hipérboles de difração
