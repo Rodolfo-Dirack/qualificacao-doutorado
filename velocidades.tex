@@ -74,15 +74,40 @@ em um modelo geológico sintético de uma estrutura salina.}
 \label{fig:8.3}
 \end{figure}
 
-
-
-
-
 A análise de velocidades automatizada no domínio pós empilhado e o imageamento de alta resolução
-para heterogeneidades de pequena escala são feitos através da produção de seções migradas no tempo 
+para heterogeneidades de pequena escala serão feitos através da produção de seções migradas no tempo 
 com as hipérboles de difração focalizadas. 
 Este processo contará com a análise automatizada de focalização para a detecção das
-velocidades de migração ótimas no imageamento das hipérboles de difração simuladas \cite{sep_dif}.
+velocidades de migração ótimas no imageamento das hipérboles de difração simuladas 
+utilizando a medida de variação máxima local \cite{sep_dif}:
+
+\begin{equation}
+ \label{eq:8.2}
+ \phi_i = \frac{\sum^N_{i=1} a_i }{\sqrt{ N \sum^N_{i=1} a_i^2 }} 
+\end{equation}
+
+Onde $s_i$ é a amplitude da amostra do sinal sísmico em uma janela de tamanho $N$.
+Sinais bem focalizados possuem alta variação máxima local $\phi_i$. Desta forma, produziremos
+os painéis de focalização de imagem calculando $\phi_i$ para cada ponto na seção migrada
+e realizaremos a análise de velocidades automatizada (Um exemplo dos painéis de focalização de imagem
+está na Figura \ref{fig:8.4}).
+
+\begin{figure}[htb]
+\caption{Exemplo de painéis de focalização de imagem. As cores representam os valores de variação
+máxima local. O eixo das abcissas é a velocidade em Km/s. O eixo das ordenadas é o tempo em s.}
+\begin{center}
+\includegraphics[scale=0.30]{images/panelfig.png}
+\vspace{-0.3cm}
+\end{center}
+\begin{center}
+ Fonte: \cite{sep_dif}.
+\end{center}
+\label{fig:8.4}
+\end{figure}
+
+A principal diferença desta metodologia para a análise
+de velocidades convencional é que a informação sobre a velocidade
+será obtida da focalização das difrações ao invés dos painéis de coerência \cite{sep_dif}.
 
 A migração no tempo será realizada a partir de um algoritmo de continuação de velocidades \cite{fomel2003a},
 um método que performa
@@ -91,11 +116,10 @@ a análise de velocidade de migração em tempo continuando imagens sísmicas na
 com um conjunto de diferentes velocidades fazendo pequenos incrementos na velocidade diretamente no domínio da imagem.
 Implementaremos através de um algoritmo baseado na tranformada rápida de Fourier \cite{bfomel2003}.
 
-Aplicaremos uma medida de focalização local para obter os painéis de velocidade de migração para cada ponto no domínio da
-imagem. E realizaremos a análise de velocidades automatizada, com a principal diferença de que a informação sobre a velocidade
-será obtida da análise da medida de focalização das difrações ao invés da coerência \cite{sep_dif}.
-Os resultados obtidos são as velocidades de migração que melhor focalizam as hipérboles da seção simulada e tangente as hipérboles
-aparecerá a imagem do refletor.
+A Figura \ref{fig:8.5} apresenta o algoritmo proposto para a obtenção do modelo de velocidades. O algoritmo funciona em um
+laço seguindo os passos anteriormente descritos e a atualização do modelo de velocidades da iteração é realizada com
+auxílio do VFSA até atingir um modelo ótimo. O critério de convergência será a coerência entre os dados modelados a partir do
+o modelo de velocidades da iteração atual e os dados sísmicos pré empilhados \cite{mesquita}.
 
 \begin{figure}[htb]
 \caption{Fluxograma do algoritmo de inversão do modelo de velocidades.}
@@ -106,5 +130,5 @@ aparecerá a imagem do refletor.
 \begin{center}
  Fonte: Do Autor.
 \end{center}
-\label{fig:8.4}
+\label{fig:8.5}
 \end{figure}
