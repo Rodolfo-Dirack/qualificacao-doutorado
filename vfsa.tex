@@ -95,10 +95,10 @@ O mínimo global pode ser obtido usando a sequência de refriamento $T_i$, defin
 
 \begin{equation}
 \label{eq:3.8}
- T_i(k)=T_{0i}exp(-C_ik^{1/n})
+ T_i(k)=T_{0}exp(-C_ik^{1/n})
 \end{equation}
 
-Onde o parâmetro $T_{0i}$ é a temperatura inicial, e $C_i$ é um parâmetro livre para controle do decaimento e ajuste ao
+Onde o parâmetro $T_{0}$ é a temperatura inicial, e $C_i$ é um parâmetro livre para controle do decaimento e ajuste ao
 problema \cite{klaus}. O pseudo-código do algoritmo VFSA é apresentado abaixo \cite{stoffa}:
 
 \begin{algorithm}
@@ -196,7 +196,7 @@ Seu valor máximo é 1 e o mínimo é 0 \cite{seg}. O semblance é medido em uma
 e uma superfície de tempo de
 trânsito SRC aproximada. 
 
-Para adaptar o Algoritmo \ref{alg:3.1} para o problema da otimização dos parâmetros do SRC, utilizamos a
+Para adaptar o Algoritmo 1 para o problema da otimização dos parâmetros do SRC, utilizamos a
 função Semblance como função Energia $E(m_i)$ e os parâmetros do modelo $m_i$ como o vetor
 de parâmetros $m_i={R_N,R_{NIP},\beta_0}$, escolhemos valores arbitrários para constante de amortecimento $C_0$ e
 para temperatura inicial $T_0$.
