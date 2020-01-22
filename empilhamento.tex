@@ -18,7 +18,7 @@
 
 O empilhamento ERC foi realizado após a interpolação com filtros adaptativos de predição de erro (FPE). Esta etapa de
 interpolação permite amostrar a trajetória de tempo de trânsito ERC com um intervalo de amostragem satisfatório no
-domínio do PMC. O empilhamento ERC é feito nas famílias ERC sobre as trajtórias de tempo de trânsito ERC. Cada ponto sobre
+domínio do PMC. O empilhamento ERC é feito nas famílias ERC sobre as trajetórias de tempo de trânsito ERC. Cada ponto sobre
 a seção empilhada ERC ($m_0$,$t_0$) corresponderá a uma família ERC e a uma trajetória ERC, 
 o resultado do empilhamento no domínio
 ERC é atribuído à coordenada $m_0$,$t_0$ na seção empilhada ERC, formando a imagem na seção empilhada.
@@ -45,7 +45,7 @@ são calculados os parâmetros do SRC de afastamento nulo $R_{NIP}$ e $\beta_0$ 
 Simulated Aneeling (VFSA). Após a obtenção dos parâmetros ótimos, deteminamos as coordenadas $m,h$ que fazem parte da trajetória ERC
 e buscamos no cubo de dados interpolados os traços que estão sobre esta trajetória, estes formam uma família ERC.
 Os parâmetros $R_{NIP}$ e $\beta_0$ também permitem calcular uma curva de tempo de trânsito no domínio ERC, esta será utilizada
-para empilhar as amostras sobre a curva, na família ERC correspondente a uma coordenada $m_0, t_0$ da seção empilhada.
+para empilhar as amostras sobre a curva, na família ERC correspondente.
 
 A Figura \ref{fig:7.2} apresenta o resultado do empilhamento para o supertraço $m_0=4Km$. O supertraço apresenta ruído numérico
 proveninte dos processos de interpolação e empilhamento. Para atenuar este ruído utilizamos um filtro banda-passante no 
@@ -116,7 +116,7 @@ ruído numérico aos dados empilhados.}
 
 %% Figuras seção empilhada CRE com a equação de tempo de trânsito CRE
 
-O empilhamento para um dado $m_0$, descrito acima, é realizado para um conjunto de $m_0's$ para formar a seção empilhada.
+O empilhamento para um dado $m_0$, descrito acima, é realizado para um conjunto de $m_0$'s para formar a seção empilhada.
 Cada $m_0$ será um supertraço da seção, como apresentado nas Figuras \ref{fig:7.6}-\ref{fig:7.7} 
 que apresentam 4 supertraços empilhados
 com $m_0$ variando entre 4Km e 5.5Km com amostragem de 0.5Km.
