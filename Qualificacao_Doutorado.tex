@@ -1,0 +1,389 @@
+%
+% Qualificacao_Doutorado.tex (LateX)
+% 
+% Objetivo: Arquivo principal do relatório de qualificação de doutorado.
+% baseado em um template para a geração de documentos em LaTeX.
+% 
+% Versão 1.0
+% 
+% Site: http://www.dirackslounge.online
+% 
+% Programador: 
+%		(1.4) - Lauro César Araujo 
+%			Template, distribuição e manutenção
+%		(1.5) - Rodolfo A. C. Neves (Dirack) 07/10/2019 
+%			Modificações e utilização neste relatório
+% 
+% Email: rodolfo_profissional@hotmail.com
+% 
+% Licença (Versão modificada): GPL-3.0 <https://www.gnu.org/licenses/gpl-3.0.txt>.
+%
+% Licença (Versão original): LaTeX Project Public License (LPPL - 1.3) <http://www.latex-project.org/lppl.txt>
+%
+% Documentação extra: <http://abntex2.googlecode.com/>
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+%	french,				% idioma adicional para hifenização
+%	spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{abntex2}
+
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{tocloft}
+\usepackage{cmap}			% Mapear caracteres especiais no PDF
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Determina a codificação utiizada (conversão automática dos acentos)
+\usepackage{makeidx}            	% Cria o indice
+\usepackage{amssymb,amsfonts,amsmath,wasysym}
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{nomencl} 			% Lista de simbolos
+\usepackage{color}			% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{subfig}
+\usepackage{float} 			% Colocar a figura no local certo
+\usepackage{scalefnt} 			% Pacote da redimensionar a fonte de tabelas, figuras e equações.
+\usepackage{placeins}
+\allowdisplaybreaks
+\usepackage{kantlipsum}
+\usepackage{pdfpages}
+\usepackage{titlesec}
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}			 % Citações padrão ABNT
+\usepackage{tensor}
+\usepackage{setspace}
+\usepackage{caption}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage[portuguese,ruled,lined]{algorithm2e}
+\usepackage{algorithmic}
+
+\renewcommand{\figurename}{Figura-}
+\usepackage[figurename=Figura]{caption}
+
+\renewcommand{\chapnumfont}{\bfseries}
+\renewcommand{\ABNTEXfontereduzida}{\mdseries\footnotesize}
+\renewcommand{\ABNTEXchapterfontsize}{\bfseries \normalsize}
+\renewcommand{\ABNTEXsectionfontsize}{\normalsize}
+\addto{\captionsbrazil}{\renewcommand{\contentsname}{\textbf{SUMÁRIO}}}
+\addto{\captionsbrazil}{\renewcommand{\bibname}{\bfseries \textbf{REFERÊNCIAS}\selectfont}}
+\renewcommand{\apendicesname}{\bfseries \selectfont  APÊNDICES}
+\renewcommand{\apendicename}{\bfseries\selectfont APÊNDICE}
+\renewcommand{\anexosname}{\bfseries ANEXOS}
+
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1
+	
+	\or
+	
+	\else
+
+	\fi}
+
+%% Informações básicas da CAPA
+\instituicao{
+  Universidade Federal do Pará -- UFPA
+  \par
+  Instituto de Geociências
+  \par
+  Programa de Pós-Graduação em Geofísica}
+\titulo{INVERSÃO DO MODELO DE VELOCIDADES NO DOMÍNIO ERC UTILIZANDO AS APROXIMAÇÕES DE TEMPO DE TRÂNSITO SRC NÃO HIPERBÓLICO}
+
+\autor{Rodolfo André Cardoso Neves}
+\local{Belém-Pará}
+\data{2019}
+
+\orientador{Prof. Dr. João Carlos Ribeiro Cruz}
+\coorientador{}
+
+\preambulo{Relatório apresentado ao Programa de Pós-Graduação em Geofísica do Instituto de Geociências 
+da Universidade Federal
+do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Geofísica.}
+
+\definecolor{blue}{RGB}{41,5,195}
+\definecolor{black2}{RGB}{39,64,139}
+
+%% Configurações padrão do PDF
+\hypersetup{
+		backref=true,
+		pagebackref=true,
+		bookmarks=true,         		% show bookmarks bar?
+		pdftitle={\imprimirtitulo}, 
+		pdfauthor={\imprimirautor},
+    	pdfsubject={\imprimirpreambulo},
+		pdfkeywords={PALAVRAS}{CHAVES}{abnt}{abntex}{abntex2},
+	    pdfproducer={LaTeX with abnTeX2}, 		% producer of the document
+	    pdfcreator={\imprimirautor},
+    	colorlinks=true,       				% false: boxed links; true: colored links
+    	linkcolor=black,          			% color of internal links
+    	citecolor=black,        			% color of links to bibliography
+    	linkcolor=black,          			% color of internal links
+    	citecolor=black,        			% color of links to bibliography
+    	filecolor=black,      				% color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+
+% Indentação do parágrafo
+\setlength{\parindent}{1.3cm}
+
+% Espaçamento entre parágrafos
+\setlength{\parskip}{0.2cm}
+
+% Espaçamento entre linhas
+\OnehalfSpacing	
+
+% compilar indice
+\makeindex
+
+% Compilar lista de abreviaturas e siglas
+\makenomenclature
+
+\renewcommand{\sin}{\mathrm{sen}}
+\newcommand{\disp}{\displaystyle}
+\newcommand{\mbf}{\mathbf}
+
+\hyphenation{geo-fí-si-co}
+\hyphenation{MCSEM}
+
+\captionsetup{labelsep=period,font=small,justification=justified,labelfont=md,format=plain,labelsep=endash}
+
+\renewcommand{\imprimircapa}{
+\begin{capa}
+	\begin{figure}[!t]
+		\begin{center}
+			\includegraphics[scale=0.3]{images/Logo_UFPA2.pdf}
+		\end{center} 
+	\end{figure}
+			\begin{center}
+				{\ABNTEXchapterfont\bfseries{UNIVERSIDADE FEDERAL DO PARÁ \\ INSTITUTO DE GEOCIÊNCIAS \\ PROGRAMA DE PÓS-GRADUAÇÃO EM GEOFÍSICA} }
+		\end{center}
+
+\center
+
+\vspace*{1cm}
+{\ABNTEXchapterfont\bfseries\large\MakeUppercase{\imprimirautor}}\\
+\vspace*{2cm}
+{\ABNTEXchapterfont\bfseries\large\imprimirtitulo}\\
+\vspace*{2cm}{\ABNTEXchapterfont\bfseries\large{RELATÓRIO DE QUALIFICAÇÃO DE DOUTORADO}}
+\vspace*{\fill}\\
+{\large\MakeUppercase{\imprimirlocal}}
+\par
+{\large\imprimirdata}
+\vspace*{1cm}
+\end{capa}
+}
+
+
+\makeatletter
+\renewcommand{\folhaderostocontent}{
+\begin{center}
+	\vspace*{1cm}
+	{\ABNTEXchapterfont\bfseries\large\MakeUppercase{\imprimirautor}}\\
+	\vspace*{\fill}\vspace*{\fill}
+	{\ABNTEXchapterfont\bfseries\large\imprimirtitulo}\\
+	 \vspace{\baselineskip}
+	{\ABNTEXchapterfont\bfseries\large{RELATÓRIO DE QUALIFICAÇÃO DE DOUTORADO}}
+	\vspace{\baselineskip}
+	\vspace{\baselineskip}
+	\vspace*{\fill}
+	\abntex@ifnotempty{\imprimirpreambulo}{
+	\hspace{5cm}
+	\begin{minipage}{10cm}
+	\SingleSpacing
+	\imprimirpreambulo\\ \\
+	{\imprimirorientadorRotulo~Prof. Dr. João Carlos Ribeiro Cruz}\\
+	\end{minipage}
+	\vspace*{\fill}
+	}
+	\abntex@ifnotempty{\imprimircoorientador}{
+	{\large\imprimircoorientadorRotulo~\imprimircoorientador}
+	}
+	\vspace*{\fill}
+	{\large\imprimirlocal}
+	\par
+	{\large\imprimirdata}
+	\vspace*{1cm}
+\end{center}
+
+}
+
+\makeatother
+
+\begin{document}
+
+\imprimircapa
+
+\imprimirfolhaderosto*
+
+\begin{dedicatoria}
+   \vspace*{\fill}
+   \vspace*{13cm}
+   \centering
+   \noindent
+   \begin{flushright} Dedico este trabalho \`a minha fam\'ilia.
+   \end{flushright}
+     \vspace*{\fill}
+\end{dedicatoria}
+
+\begin{agradecimentos}[\fontsize{12pt}{\baselineskip}\textbf{AGRADECIMENTOS}]
+\vspace*{1.5cm}
+
+Ao Prof. Dr. João Carlos pela orientação desta tese, e pela proposta do tema. Além
+do suporte e paciência em responder as minhas dúvidas, e das sugestões inteligentes na solução de problemas
+que foram aparecendo no caminho.
+
+Agradeço ao professor Sergey Fomel, que apesar de não conhecer pessoalmente, produziu trabalhos
+que inspiraram o tema, e disponibilizou gratuitamente
+vários
+dos programas aqui utilizados.
+
+Agradeço à minha mãe Regina de Nazaré,
+à minha irmã Rebeca Cristina, às minhas sobrinhas Ágatha e Anadora, 
+e ao meu pai Ricardo Neves, por todo apoio e dedicação
+durante a árdua caminhada para a realização deste sonho!
+
+E agradeço à amizade de amigos que conquistei durante o curso de Geofísica, e que de forma direta ou indireta
+me ajudaram na realização do trabalho:
+Leonardo Reis, Hugo Souza, Diogo Rezende, Antônio Rizimar e Raphael Di Carlo.
+
+\end{agradecimentos}
+
+\begin{epigrafe}
+    \vspace*{\fill}
+	\begin{flushright}
+		\textit{``Todas as coisas excelentes são tão difíceis quanto raras''. \\
+		(Baruch Spinoza)}
+	\end{flushright}
+\end{epigrafe}
+
+\begin{resumo}[\fontsize{12pt}{\baselineskip}\textbf{RESUMO}]
+\OnehalfSpacing
+
+Neste trabalho, propomos uma metodologia de inversão do modelo de velocidades pós empilhamento, a partir dos
+parâmetros do SRC de afastamento nulo $R_N$, $R_{NIP}$ e $\beta_0$ e da seção empilhada, obtidos no empilhamento ERC.
+O método do elemento de reflexão comum (ERC) possui a vantagem de 
+não necessitar do conhecimento a priori do modelo de velocidades na obtenção da seção empilhada.
+Apenas a velocidade próxima à superfície é requerida. 
+Este método proporciona parâmetros importantes para a obtenção do
+macromodelo de velocidades na etapa de inversão subsequente.
+Utilizamos a aproximação do SRC não hiperbólico para
+obter os parâmetros do SRC de afastamento nulo através da otimização global com o algoritmo Very Fast Simulated Aneeling (VFSA),
+e calculamos a curva de empilhamento aplicando a condição SDC ($R_N=R{NIP}$) à esta aproximação.
+Obtemos as famílias ERC através da regularização dos dados, aumentando a amostragem das seções de afastamento constante
+com a interpolação com filtros adaptativos de predição de erro (FPE) e calculamos as trajetórias ERC 
+no plano Ponto médio comum x afastamento em função de dos parâmetros $R_{NIP}$ e $\beta_0$.
+A inversão do modelo de velocidades é realizada em um laço iterativo e a atualização do modelo é feita com o VFSA.
+O modelo em cada iteração é obtido a partir de respostas de difração simuladas na seção empilhada ERC. Utilizando uma
+medida de focalização e a continuação de velocidades, obtemos o modelo de velocidades que melhor focaliza as hipérboles
+de difração simuladas. O critério de convergência do modelo de velocidades é a coerência entre os dados modelados
+com o modelo de velocidades da iteração atual e os dados pré empilhados.
+\vspace{\onelineskip} 
+ \noindent
+ \par Palavras-chave: Inversão do modelo de velocidades. Aproximações não hiperbólicas do tempo de trânsito SRC. 
+ Empilhamento Elemento de Reflexão Comum (ERC). 
+\end{resumo}
+
+\begin{resumo}[\fontsize{12pt}{\baselineskip}\textbf{ABSTRACT}]
+\OnehalfSpacing
+
+In this work, we propose a new methodology of post stack velocity model inversion, from zero offset CRS parameters
+$R_N$, $R_{NIP}$ e $\beta_0$ and stacking section obtained during CRE stacking process.
+The main advantage of the CRE method is it does not need a priori knowledge of the macro velocity model to obtain the
+stacking section. Only near surface velocity information is required.
+This method brings important parameters to the macrovelocity model in the inversion step.
+We use the non hyperbolic CRS approximation to obtain the zero offset 
+CRS parameters through the Very Fast Simulated Aneeling (VFSA)
+global optimization algorithm, and calculate the stacking curve applying the 
+CDS condition ($R_N=R{NIP}$) in this approximantion.
+We obtain the CRE Gathers through data regularization, increasing the constant offset gathers sampling with
+non adaptative prediction error filters interpolation (PEF) and calculating the seismic traces in the CRE trajectory in the 
+CMP x Offset plane in function of the $R_{NIP}$ and $\beta_0$ parameters.
+The velocity model inversion is done inside an iterative loop and the model updating uses VFSA algorithm.
+In each iteration the velocity model is obtained through diffraction response simulation in the CRE stacked section.
+Using the local varimax measure as a focusing criteria and velocity continuation, we obtain the best velocity model
+that focus the simulated diffraction hyperbole.
+The convergence criteria of the velocity model is the semblance between the modeled data with the 
+actual iteration velocity model and the pre-stack seismic data.
+\vspace{\onelineskip} 
+\noindent 
+ \par Palavras-chave: Velocity model inversion. Non-hyperbolic CRS traveltime approximation. 
+ Common reflecting element (CRE) stacking. 
+\end{resumo}
+
+\renewcommand{\listfigurename}{\fontsize{12pt}{\baselineskip}\textbf{LISTA DE ILUSTRAÇÕES}}
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+
+\cleardoublepage
+
+\tableofcontents*
+
+\cleardoublepage
+ 
+\mainmatter
+
+%% Inclusão dos capítulos ao documento principal
+\include{introducao}
+\include{cre} % Método CRE fundamentos teóricos
+\include{vfsa} % Otimização global VFSA
+\include{pef} % Teoria intepolação com filtros PEF
+\include{modeling} % Resultado da modelagem
+\include{interpolacao} % Resultados da Interpoção com PEF
+\include{empilhamento} % Resultados do empilhamento cre
+\include{velocidades} % Proposta de uma metodologia para inversão do modelo de velocidades
+\include{cronograma} % cronograma de atividades e entrega do trabalho
+\include{conclusao} % conclusão discutindo os resultados obtidos e esperados
+
+\bookmarksetup{startatroot}
+
+\bibliography{mybib}
+
+%% Inicia os apêndices
+%% ---
+\begin{apendicesenv}
+
+%% Imprime uma página indicando o início dos apêndices
+\partapendices
+%\newpage\null\thispagestyle{empty}
+% \begin{center}
+% \vspace{10cm}
+% {\large\textbf{APÊNDICES}}
+% \end{center}
+% \newpage
+
+\input{apendice_tempo_transito_cre}
+% \input{apendiceB}
+% \input{apendiceC}
+% \input{apendiceD}
+% \input{MT}
+%
+\end{apendicesenv}
+
+%% Inicia os anexos
+%\begin{anexosenv}
+%\partanexos
+%\include{AnexoA}
+
+%\end{anexosenv}
+
+\cleardoublepage
+\phantomsection 
+\printindex
+
+\end{document}

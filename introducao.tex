@@ -1,0 +1,77 @@
+\chapter{INTRODUÇÃO}
+\label{cap1}
+
+A equação do sobretempo normal \cite{dix} é uma aproximação de tempo de trânsito de reflexão válida para pequenos afastamentos
+entre os pares fonte receptor na superfície de registro em uma aquisição sísmica. Esta equação foi desenvolvida para modelos de
+multicamadas planas horizontais. 
+A equação de sobretempo normal é uma aproximação em série de Taylor de segunda ordem para o tempo de trânsito, por isto é
+também chamada de aproximação hiperbólica. Todavia, esta aproximação diverge do tempo de trânsito analítico
+em grandes afastamentos.
+
+Aproximações de tempo de trânsito não hiperbólicas foram desenvolvidas na literatura,
+com o intuito de estender a região de convergência das
+aproximações de tempo de trânsito no domínio do afastamento: Estas aproximações utilizam mais de dois termos para aumentar a 
+acurácia da análise de velocidades e da correção de sobretempo normal. Cada uma destas aproximações terá
+as suas limitações na estimativa das velocidades e na relação afastamento profundidade.
+
+O empilhamento convencional, utilizando as aproximações de sobretempo normal hiperbólicas ou não hiperbólicas, é estendido
+para o domínio do Ponto Médio Comun (PMC) a partir do empilhamento Superfície de Reflexão Comum (SRC) de
+afastamento nulo: 
+O empilhamento é realizado sobre uma superfície de tempo de
+trânsito no domínio do meio afastamento $h$ e na vizinhança de um PMC central $m_0$, a partir de
+três parâmetros ($R_N$, $R_{NIP}$ e $\beta_0$) dados para cada $m_0$. Este empilhamento SRC é dito de afastamento nulo,
+pois o PMC central $m_0$ é escolhido da seção de afastamento nulo $h=0$.
+O empilhamento SRC de afastamento nulo possui uma aproximação de tempo de trânsito hiperbólica \cite{jager},
+e várias aproximações
+de tempo de trânsito SRC foram propostas com o objetivo de estender a região de convergência desta aproximação:
+As aproximações do SRC não hiperbólico \cite{fomel1}, as aproximações do SRC quarta ordem
+\cite{germam}.
+
+Um caso especial do método de empilhamento SRC, é o empilhamento por Elemento de Reflexão Comum (ERC):
+O empilhamento ERC é também realizado no domínio do afastamento $h$ e na vizinhança de um PMC central $m_0$, assim como o
+empilhamento SRC. Porém, o empilhamento ERC é feito sobre uma curva de tempo de trânsito de reflexão correspondente ao
+conjunto de trajetórias de reflexão que possuem em comun
+o mesmo ponto de incidência sobre o refletor.
+Este método possui a vantagem de prover
+parâmetros importantes para a construção do modelo de velocidades, e utiliza dois dos parâmetros
+do método SRC de afastamento nulo ($R_{NIP}$ e $\beta_0$).
+A principal desvantagem do método ERC é a interpolação: O empilhamento ERC necessita de 
+traços em coordenadas de PMC $m$ e meio afastamento $h$ não coincidentes com as coordenadas
+e amostragem dos dados adquiridos.
+O objetivo desta pesquisa é propor uma metodologia de inversão do modelo de velocidades utilizando o método ERC para
+a obtenção da seção empilhada e de interpolação dos dados observados para possibilitar a amostragem das famílias ERC. 
+
+Propomos a seguinte estratégia de interpolação para a obtenção da seção empilhada ERC:
+O algoritmo Very Fast Simulated Aneeling (VFSA) é utilizado para obter os parâmetros do SRC de afastamentos nulo
+$R_{NIP}$ e $\beta_0$. Como a obtenção de tais parâmetros é um subproduto do empilhamento SRC esta etapa é comum
+aos dois métodos, possibilitanto que os dois sejam realizados em fluxos de trabalho independentes que compartilham os 
+mesmos parâmetros, não sendo necessário nenhum procedimento além do usual para o empilhamento SRC convencional.
+A trajetória ERC é traçada no plano $m, h$ para estabelecer as coordenadas dos traços pertencentes à família ERC
+com uma equação que descreve a trajetória e o a equação de tempo de trânsito ERC \cite{cre}.
+Interpolaremos os dados adiquiridos utilizando os filtros adaptativos de predição de erro (FPE) no domínio PMC \cite{liu11}.
+Esta etapa possibilita a amostragem adequada para a obtenção das famílias ERC,
+uma para cada PMC central $m_0$. 
+Finalizadas estas etapas,
+obteremos a seção empilhada ERC a partir do empilhamento das amostras sobre uma curva de tempo de trânsito ERC 
+pertencentes as famílias ERC. Esta curva é determinada para cadar par $m_0, t_0$ da seção empilhada \cite{cre}.
+
+A principal vantagem do método ERC é não precisar de informação a priori do macromodelo de velocidades. 
+Este método poder ser utilizado na obtenção do modelo de velocidades através de alguma etapa de inversão,
+como a tomografia \cite{cre}. Para a obtenção do modelo de velocidades propomos a seguinte estratégia:
+Utilização de um algoritmo iterativo iniciando com um modelo de velocidades inicial que é atualizado
+a cada iteração com o algoritmo VFSA. 
+O critério de convergência do modelo de velocidades será a coerência entre
+os dados modelados a partir do modelo de velocidades da iteração atual com os dados pré empilhados \cite{mesquita}.
+
+O modelo de velocidades de cada iteração do algoritmo de inversão será produzido a partir de respostas simuladas
+de difrações em pontos $m_0, t_0$ escolhidos da seção empilhada ERC com uma equação de tempo de trânsito de difrações
+e o espalhamento da amplitude do ponto escolhido $A(m_0, t_0)$ sobre a trajetória de tempo de trânsito, formando
+a hipérbole de difração \cite{diffractions}. A focalização das difrações na seção empilhada ERC será realizada
+através de um algoritmo baseado na continuação de velocidades e na medida de variação máxima local para produzir
+os painéis de focalização da imagem com as velocidades que melhor focalizam as respostas de difrações simuladas.
+Com o \textit{picking} das velocidades nestes painéis (máximos valores de variação máxima local indicam alta focalização)
+é formado o modelo de velocidades da iteração atual \cite{sep_dif}.
+
+
+
+

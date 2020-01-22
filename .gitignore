@@ -1,0 +1,16 @@
+*.aux
+*.toc
+*.bbl
+*.blg
+*.brf
+*.idx
+*.lof
+*.log
+*.nlo
+relatorio_rodolfo.pdf
+*.backup
+*.ind
+*.ilg
+*.pdf
+!images/*
+images/esbocoFluxo.dia

@@ -1,32 +1,26 @@
-# Qualificação de doutorado Rodolfo Neves
+## Qualificação de doutorado Rodolfo A C Neves (Dirack)
 
-> Relatório de qualificação e apresentação para a qualificação de Doutorado (03/2020)
+> Relatório de qualificação e apresentação para a qualificação de Doutorado (28/02/2020)
 
-### Lista de tarefas
+Este relatório descreve o desenvolvimento da tese de Doutorado de um algoritmo de inversão do modelo de velocidades
+de ondas sísmicas utilizando o método ERC. A versão beta do algoritmo, com exemplos de uso e scripts está disponível
+no repositório [cre-gather-interpolation](https://github.com/Dirack/cre-gather-interpolation) sob a licensa GPL-3.
 
-1. Introdução
+#### Algoritmo de inversão do modelo de velocidades
 
-- [ ] Adicionar introdução ao arquivo principal
+![Algoritmo](https://github.com/Dirack/qualificacao-doutorado/blob/develop/0.1/images/fluxoVel.png)
 
-2. Fundamentos Teóricos
+A seguir alguns dos resultados já obtidos:
 
-- [ ] Capítulo sobre a otimização global dos parâmetros do CRS com o Very Fast Simulated Aneelling (VFSA)
-- [ ] Capítulo sobre o CRS não hiperbólico
-- [x] Capítulo sobre o método CRE
-- [ ] Capítulo sobre interpolação com filtros adaptativos de predição de erro PEF
-- [ ] Sugestão do algoritmo de inversão do modelo de velocidades
+#### Obtenção da seção empilhada ERC (bruta e filtrada)
 
-3. Resultados
+![Seção empilhada ERC filtrada](https://github.com/Dirack/qualificacao-doutorado/blob/develop/0.1/images/hugeFiltStackedSection.jpeg)
 
-- [ ] Modelagem 
-- [ ] Otimização com o VFSA
-- [ ] Interpolação PEF
-- [ ] Empilhamento CRE
+![Seção empilhada ERC bruta](https://github.com/Dirack/qualificacao-doutorado/blob/develop/0.1/images/hugeStackedSection.jpeg)
 
-4. Cronograma
+#### Modelo utilizado (refletor gaussiano)
 
-- [ ] Expectativa do tempo de conclusão e tarefas realizadas
+![Modelo do refletor gaussiano](https://github.com/Dirack/qualificacao-doutorado/blob/develop/0.1/images/dome.jpeg)
 
-5. Conclusão
+![Cubo de dados modelado](https://github.com/Dirack/qualificacao-doutorado/blob/develop/0.1/images/dataCube.jpeg)
 
-- [ ] Sugestões e expectativas
