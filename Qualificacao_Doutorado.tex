@@ -288,7 +288,11 @@ e calculamos a curva de empilhamento aplicando a condição SDC ($R_N=R{NIP}$) �
 Obtemos as famílias ERC através da regularização dos dados, aumentando a amostragem das seções de afastamento constante
 com a interpolação com filtros adaptativos de predição de erro (FPE) e calculamos as trajetórias ERC 
 no plano Ponto médio comum x afastamento em função de dos parâmetros $R_{NIP}$ e $\beta_0$.
-
+A inversão do modelo de velocidades é realizada em um laço iterativo e a atualização do modelo é feita com o VFSA.
+O modelo em cada iteração é obtido a partir de respostas de difração simuladas na seção empilhada ERC. Utilizando uma
+medida de focalização e a continuação de velocidades, obtemos o modelo de velocidades que melhor focaliza as hipérboles
+de difração simuladas. O critério de convergência do modelo de velocidades é a coerência entre os dados modelados
+com o modelo de velocidades da iteração atual e os dados pré empilhados.
 \vspace{\onelineskip} 
  \noindent
  \par Palavras-chave: Inversão do modelo de velocidades. Aproximações não hiperbólicas do tempo de trânsito SRC. 
@@ -310,11 +314,16 @@ CDS condition ($R_N=R{NIP}$) in this approximantion.
 We obtain the CRE Gathers through data regularization, increasing the constant offset gathers sampling with
 non adaptative prediction error filters interpolation (PEF) and calculating the seismic traces in the CRE trajectory in the 
 CMP x Offset plane in function of the $R_{NIP}$ and $\beta_0$ parameters.
-
+The velocity model inversion is done inside an iterative loop and the model updating uses VFSA algorithm.
+In each iteration the velocity model is obtained through diffraction response simulation in the CRE stacked section.
+Using the local varimax measure as a focusing criteria and velocity continuation, we obtain the best velocity model
+that focus the simulated diffraction hyperbole.
+The convergence criteria of the velocity model is the semblance between the modeled data with the 
+actual iteration velocity model and the pre-stack seismic data.
 \vspace{\onelineskip} 
 \noindent 
-\par Keywords: Padé approximants. Velocity model inversion. Non Hyperbolic CRS.
-Common Reflection Element (CRE) stacking.
+ \par Palavras-chave: Velocity model inversion. Non-hyperbolic CRS traveltime approximation. 
+ Common reflecting element (CRE) stacking. 
 \end{resumo}
 
 \renewcommand{\listfigurename}{\fontsize{12pt}{\baselineskip}\textbf{LISTA DE ILUSTRAÇÕES}}
@@ -358,7 +367,7 @@ Common Reflection Element (CRE) stacking.
 % \end{center}
 % \newpage
 
-\input{apendice_scons}
+\input{apendice_tempo_transito_cre}
 % \input{apendiceB}
 % \input{apendiceC}
 % \input{apendiceD}
