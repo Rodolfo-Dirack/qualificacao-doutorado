@@ -101,25 +101,6 @@ O mínimo global pode ser obtido usando a sequência de refriamento $T_i$, defin
 Onde o parâmetro $T_{0i}$ é a temperatura inicial, e $C_i$ é um parâmetro livre para controle do decaimento e ajuste ao
 problema \cite{klaus}. O pseudo-código do algoritmo VFSA é apresentado abaixo \cite{stoffa}:
 
-\vspace{\onelineskip} 
-
-% \begin{algorithm}[H]
-% \Entrada{Inicia com um valor aleatório para o parâmetro $m_0$ com uma energia $E(m_0)$}
-% \Saida{Parâmetros $p_i$ otimizados}
-% \Inicio{
-% inicializa\c{c}\~ao\;
-% \Repita{fim do texto}{
-% leia o atual\;
-% \uIf{entendeu}{
-% vá para o próximo\;
-% próximo se torna o atual\;}
-% \Else{volte ao início da seção\;}
-% }
-% }
-% \caption{O pseudo-código do algoritmo Very Fast Simulated Annealing (VFSA).}
-% \end{algorithm}
-
-
 \begin{algorithm}
 \label{alg:3.1}
  \Entrada{Valor inicial arbitrário para o vetor de parâmetros $m_0$ e uma janela de busca. Temperatura inicial $T_0$.}
@@ -192,7 +173,7 @@ proposto para obtenção dos parâmetros do SRC de afastamento nulo.}
 \label{fig:3.1}
 \end{figure}
 
-Podemos utilizar o semblance (coerência) no algoritmo VFSA como critério de convergência na Equação \ref{eq:3.1}
+Utilizamos o semblance (coerência) no algoritmo VFSA como critério de convergência na Equação \ref{eq:3.1}
 para determinar os parâmetros do SRC $R_N$, $R_{NIP}$ e $\beta_0$. Os dois últimos parâmetros são utilizados também 
 no método ERC.
 
