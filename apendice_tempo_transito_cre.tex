@@ -1,31 +1,8 @@
-% 
-% 	tempo_transito_cre.tex (LATEX)
-% 
-% 	Objetivo: Estudo sobre o desenvolvimento da aproximação de tempo de trânsito CRE.
-%
-%	Versão 1.0
-% 
-% 	Programador: Rodolfo A. C. Neves (Dirack) 06/01/2019
-% 
-%	Licensa: Software de uso livre e gratuito.
-
-\documentclass[a4paper, 12pt]{article}
-
-% Pacotes fundamentais
-  \usepackage{multirow}
-  \usepackage[top=2cm, bottom=2cm, left=2.5cm, right=2.5cm]{geometry}
-  \usepackage[utf8]{inputenc}
-  \usepackage{amsmath, amsfonts, amssymb}
-  \usepackage{float}
-  \usepackage{graphicx}
-  \usepackage[portuguese]{babel}
-
-\begin{document}
-
-\section{A aproximação de tempo de trânsito CRE}
+\chapter{A APROXIMAÇÃO DE TEMPO DE TRÂNSITO ERC}
+\label{ap:tempo_cre}
 
 \begin{figure}[H]
-\caption{Geometria do arranjo CRE.}
+\caption{Geometria do arranjo ERC.}
 \begin{center}
 \includegraphics[scale=0.5]{images/creGeom.png}
 \vspace{-0.3cm}
@@ -33,44 +10,44 @@
 \begin{center}
  Fonte: Do Autor.
 \end{center}
-\label{fig:1.1}
+\label{fig:ap:1.1}
 \end{figure}
 
-A expressão genérica do sobretempo normal do CRE:
+A expressão genérica do sobretempo normal do ERC:
 
 \begin{equation}
-\label{eq:1.1}
-\tau = \tau_0 + \Delta \tau_{CRE}
+\label{eq:ap:1.1}
+\tau = \tau_0 + \Delta \tau_{ERC}
 \end{equation}
 
 Onde:
 
 \begin{equation}
-\label{eq:1.2}
-\Delta \tau_{CRE} = \Delta \tau_s + \Delta \tau_g
+\label{eq:ap:1.2}
+\Delta \tau_{ERC} = \Delta \tau_s + \Delta \tau_g
 \end{equation}
 
 Definindo:
 
 \begin{equation}
-\label{eq:1.3}
+\label{eq:ap:1.3}
 -\Delta x_s = x_s - x_0
 \end{equation}
 
 \begin{equation}
-\label{eq:1.4}
+\label{eq:ap:1.4}
 \Delta x_g = x_g - x_0
 \end{equation}
 
-Definindo os tempos $\Delta \tau_s$ e $\Delta \tau_g$ a partir da geometria na Figura \ref{fig:1.1}:
+Definindo os tempos $\Delta \tau_s$ e $\Delta \tau_g$ a partir da geometria na Figura \ref{fig:ap:1.1}:
 
 \begin{equation}
-\label{eq:1.5}
+\label{eq:ap:1.5}
 \Delta \tau_s = \left( \frac{\overline{\hat{C_0}S}}{v_0} - \frac{\overline{\hat{C_0}x_0}}{v_0} \right)
 \end{equation}
 
 \begin{equation}
-\label{eq:1.6}
+\label{eq:ap:1.6}
 \Delta \tau_g = \left( \frac{\overline{\hat{C_0}G}}{v_0} - \frac{\overline{\hat{C_0}x_0}}{v_0} \right)
 \end{equation}
 
@@ -83,35 +60,35 @@ Definindo os tempos $\Delta \tau_s$ e $\Delta \tau_g$ a partir da geometria na F
 \begin{center}
  Fonte: Do Autor.
 \end{center}
-\label{fig:1.2}
+\label{fig:ap:1.2}
 \end{figure}
 
-Relembrando a lei dos cossenos a partir da Figura \ref{fig:1.2}:
+Relembrando a lei dos cossenos a partir da Figura \ref{fig:ap:1.2}:
 
 \begin{equation}
- \label{eq:1.7}
+ \label{eq:ap:1.7}
  a^2 = b^2 + c^2 - 2 b c \cos{\alpha}
 \end{equation}
 
 \begin{equation}
- \label{eq:1.8}
+ \label{eq:ap:1.8}
  b^2 = a^2 + c^2 - 2 a c \cos{\beta}
 \end{equation}
 
 \begin{equation}
- \label{eq:1.9}
+ \label{eq:ap:1.9}
  c^2 = a^2 + b^2 - 2 a b \cos{\gamma}
 \end{equation}
 
 Com auxílio da lei dos cossenos podemos definir os comprimentos:
 
 \begin{equation}
- \label{eq:1.10}
+ \label{eq:ap:1.10}
  \overline{\hat{C_0}S}^2 = \Delta x_{s}^2 + R_{NIP}^2 - 2 \Delta x_s R_{NIP} \cos{\beta_0 + \frac{\pi}{2}}
 \end{equation}
 
 \begin{equation}
- \label{eq:1.11}
+ \label{eq:ap:1.11}
  \cos{\left( \beta_0 + \frac{\pi}{2} \right)} 
  = \cos{\beta_0} \cos{\frac{\pi}{2}} - \sin{\beta_0} \sin{\frac{\pi}{2}}
 \end{equation}
@@ -119,19 +96,19 @@ Com auxílio da lei dos cossenos podemos definir os comprimentos:
 Como o $\cos{\frac{\pi}{2}}=0$ e $\sin{\frac{\pi}{2}}=1$:
 
 \begin{equation}
- \label{eq:1.12}
+ \label{eq:ap:1.12}
  \overline{\hat{C_0}S}^2 = \Delta x_{s}^2 + R_{NIP}^2 - 2 \Delta x_s R_{NIP} \sin{\beta_0}
 \end{equation}
 
 Da mesma forma:
 
 \begin{equation}
- \label{eq:1.13}
+ \label{eq:ap:1.13}
  \overline{\hat{C_0}G}^2 = \Delta x_{g}^2 + R_{NIP}^2 - 2 \Delta x_g R_{NIP} \cos{\frac{\pi}{2} - \beta_0}
 \end{equation}
 
 \begin{equation}
- \label{eq:1.14}
+ \label{eq:ap:1.14}
  \cos{\left( \frac{\pi}{2} - \beta_0 \right)} 
  = \cos{\frac{\pi}{2}} \cos{\beta_0} - \sin{\frac{\pi}{2}} \sin{\beta_0}
 \end{equation}
@@ -139,19 +116,19 @@ Da mesma forma:
 Como o $\cos{\frac{\pi}{2}}=0$ e $\sin{\frac{\pi}{2}}=1$:
 
 \begin{equation}
- \label{eq:1.15}
+ \label{eq:ap:1.15}
  \overline{\hat{C_0}G}^2 = \Delta x_{g}^2 + R_{NIP}^2 - 2 \Delta x_g R_{NIP} \sin{\beta_0}
 \end{equation}
 
 Então:
 
 \begin{equation}
- \label{eq:1.16}
+ \label{eq:ap:1.16}
  \overline{\hat{C_0}S} = \sqrt{ \Delta x_{s}^2 + R_{NIP}^2 - 2 \Delta x_s R_{NIP} \sin{\beta_0} }
 \end{equation}
 
 \begin{equation}
- \label{eq:1.17}
+ \label{eq:ap:1.17}
  \overline{\hat{C_0}S} = 
  R_{NIP} \sqrt{  1 - 2 \Delta x_s \frac{\sin{\beta_0}}{R_{NIP}} + \frac{\Delta x_{s}^2}{R_{NIP}^2} }
 \end{equation}
@@ -159,53 +136,46 @@ Então:
 Da mesma forma:
 
 \begin{equation}
- \label{eq:1.18}
+ \label{eq:ap:1.18}
  \overline{\hat{C_0}G} = \sqrt{ \Delta x_{g}^2 + R_{NIP}^2 - 2 \Delta x_g R_{NIP} \sin{\beta_0} }
 \end{equation}
 
 \begin{equation}
- \label{eq:1.19}
+ \label{eq:ap:1.19}
  \overline{\hat{C_0}G} = 
  R_{NIP} \sqrt{  1 - 2 \Delta x_g \frac{\sin{\beta_0}}{R_{NIP}} + \frac{\Delta x_{g}^2}{R_{NIP}^2} }
 \end{equation}
 
 Defindo o comprimento $\overline{\hat{C_0}x_0}$\footnote{O comprimento
-$\overline{\hat{C_0}x_0} = R_{NIP}$ não é de nenhuma forma o comprimento do raio normal.
-Os métodos baseados no CRS
-retiram parâmetros geométricos de experimentos hipotéticos (Ondas N e NIP).
-O ponto de reflexão real está em algum lugar na vizinhança de $\hat{C_0}$.
-E o raio normal é um caminho qualquer deste ponto até $x_0$ a depender da distribuição de velocidades
-do modelo.}:
+$\overline{\hat{C_0}x_0} = R_{NIP}$ não é de nenhuma forma o comprimento do raio normal.}:
 
 \begin{equation}
- \label{eq:1.20}
+ \label{eq:ap:1.20}
  \overline{\hat{C_0}x_0} = R_{NIP}
 \end{equation}
 
 \begin{equation}
- \label{eq:1.21}
+ \label{eq:ap:1.21}
 t_0 = \frac{R_{NIP}}{v_0}
 \end{equation}
 
-Então, a Equação \ref{eq:1.1} pode ser reescrita como:
+Então, a Equação \ref{eq:ap:1.1} pode ser reescrita como:
 
 \begin{equation}
- \label{eq:1.22}
+ \label{eq:ap:1.22}
 \tau = \tau_0 + \left( \frac{\overline{\hat{C_0}S}}{v_0} - \frac{\overline{\hat{C_0}x_0}}{v_0} \right)
 + \left( \frac{\overline{\hat{C_0}G}}{v_0} - \frac{\overline{\hat{C_0}x_0}}{v_0} \right)
 \end{equation}
 
 \begin{equation}
- \label{eq:1.23}
+ \label{eq:ap:1.23}
 \tau = \tau_0 + - \frac{\overline{\hat{C_0}x_0}}{v_0} + \frac{\overline{\hat{C_0}S}}{v_0}
 + \frac{\overline{\hat{C_0}G}}{v_0}
 \end{equation}
 
 \begin{equation}
- \label{eq:1.24}
+ \label{eq:ap:1.24}
 \tau = \left( \tau_0 + \frac{R_{NIP}}{v_0} \right)
 + \frac{R_{NIP}}{v_0} \left( \sqrt{  1 - 2 \Delta x_s \frac{\sin{\beta_0}}{R_{NIP}} + \frac{\Delta x_{s}^2}{R_{NIP}^2} }
 + \sqrt{  1 - 2 \Delta x_g \frac{\sin{\beta_0}}{R_{NIP}} + \frac{\Delta x_{g}^2}{R_{NIP}^2} } \right)
 \end{equation}
-
-\end{document}
