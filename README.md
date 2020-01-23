@@ -8,19 +8,19 @@ no repositório [cre-gather-interpolation](https://github.com/Dirack/cre-gather-
 
 #### Algoritmo de inversão do modelo de velocidades
 
-![Algoritmo](https://github.com/Dirack/qualificacao-doutorado/blob/develop/0.1/images/fluxoVel.png)
+![Algoritmo](https://github.com/Dirack/qualificacao-doutorado/blob/master/images/fluxoVel.png)
 
 A seguir alguns dos resultados já obtidos:
 
 #### Obtenção da seção empilhada ERC (bruta e filtrada)
 
-![Seção empilhada ERC filtrada](https://github.com/Dirack/qualificacao-doutorado/blob/develop/0.1/images/hugeFiltStackedSection.jpeg)
+![Seção empilhada ERC filtrada](https://github.com/Dirack/qualificacao-doutorado/blob/master/images/hugeFiltStackedSection.jpeg)
 
-![Seção empilhada ERC bruta](https://github.com/Dirack/qualificacao-doutorado/blob/develop/0.1/images/hugeStackedSection.jpeg)
+![Seção empilhada ERC bruta](https://github.com/Dirack/qualificacao-doutorado/blob/master/images/hugeStackedSection.jpeg)
 
 #### Modelo utilizado (refletor gaussiano)
 
-![Modelo do refletor gaussiano](https://github.com/Dirack/qualificacao-doutorado/blob/develop/0.1/images/dome.jpeg)
+![Modelo do refletor gaussiano](https://github.com/Dirack/qualificacao-doutorado/blob/master/images/dome.jpeg)
 
-![Cubo de dados modelado](https://github.com/Dirack/qualificacao-doutorado/blob/develop/0.1/images/dataCube.jpeg)
+![Cubo de dados modelado](https://github.com/Dirack/qualificacao-doutorado/blob/master/images/dataCube.jpeg)
 
