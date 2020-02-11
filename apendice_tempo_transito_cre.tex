@@ -84,7 +84,7 @@ Com auxílio da lei dos cossenos podemos definir os comprimentos:
 
 \begin{equation}
  \label{eq:ap:1.10}
- \overline{\hat{C_0}S}^2 = \Delta x_{s}^2 + R_{NIP}^2 - 2 \Delta x_s R_{NIP} 
+ \overline{\hat{C_0}S}^2 = \Delta x_{s}^2 + R_{NIP}^2 + 2 \Delta x_s R_{NIP} 
  \cos{ \left( \beta_0 + \frac{\pi}{2} \right) }
 \end{equation}
 
@@ -98,7 +98,7 @@ Como o $\cos{\frac{\pi}{2}}=0$ e $\sin{\frac{\pi}{2}}=1$:
 
 \begin{equation}
  \label{eq:ap:1.12}
- \overline{\hat{C_0}S}^2 = \Delta x_{s}^2 + R_{NIP}^2 - 2 \Delta x_s R_{NIP} \sin{\beta_0}
+ \overline{\hat{C_0}S}^2 = \Delta x_{s}^2 + R_{NIP}^2 + 2 \Delta x_s R_{NIP} \sin{\beta_0}
 \end{equation}
 
 Da mesma forma:
@@ -126,13 +126,13 @@ Então:
 
 \begin{equation}
  \label{eq:ap:1.16}
- \overline{\hat{C_0}S} = \sqrt{ \Delta x_{s}^2 + R_{NIP}^2 - 2 \Delta x_s R_{NIP} \sin{\beta_0} }
+ \overline{\hat{C_0}S} = \sqrt{ \Delta x_{s}^2 + R_{NIP}^2 + 2 \Delta x_s R_{NIP} \sin{\beta_0} }
 \end{equation}
 
 \begin{equation}
  \label{eq:ap:1.17}
  \overline{\hat{C_0}S} = 
- R_{NIP} \sqrt{  1 - 2 \Delta x_s \frac{\sin{\beta_0}}{R_{NIP}} + \frac{\Delta x_{s}^2}{R_{NIP}^2} }
+ R_{NIP} \sqrt{  1 + 2 \Delta x_s \frac{\sin{\beta_0}}{R_{NIP}} + \frac{\Delta x_{s}^2}{R_{NIP}^2} }
 \end{equation}
 
 Da mesma forma:
@@ -171,14 +171,14 @@ Então, a Equação \ref{eq:ap:1.1} pode ser reescrita como:
 
 \begin{equation}
  \label{eq:ap:1.23}
-\tau = \tau_0 + - 2 \frac{\overline{\hat{C_0}x_0}}{v_0} + \frac{\overline{\hat{C_0}S}}{v_0}
+\tau = \tau_0 - 2 \frac{\overline{\hat{C_0}x_0}}{v_0} + \frac{\overline{\hat{C_0}S}}{v_0}
 + \frac{\overline{\hat{C_0}G}}{v_0}
 \end{equation}
 
 \begin{equation}
  \label{eq:ap:1.24}
-\tau = \left( \tau_0 + \frac{2 R_{NIP}}{v_0} \right)
-+ \frac{R_{NIP}}{v_0} \left( \sqrt{  1 - 2 \Delta x_s \frac{\sin{\beta_0}}{R_{NIP}} + \frac{\Delta x_{s}^2}{R_{NIP}^2} }
+\tau = \left( \tau_0 - \frac{2 R_{NIP}}{v_0} \right)
++ \frac{R_{NIP}}{v_0} \left( \sqrt{  1 + 2 \Delta x_s \frac{\sin{\beta_0}}{R_{NIP}} + \frac{\Delta x_{s}^2}{R_{NIP}^2} }
 + \sqrt{  1 - 2 \Delta x_g \frac{\sin{\beta_0}}{R_{NIP}} + \frac{\Delta x_{g}^2}{R_{NIP}^2} } \right)
 \end{equation}
 
@@ -237,7 +237,7 @@ Se definirmos $x_0$ como um PMC central $m_0$ onde será realizada a aproximaç�
 
 \begin{equation}
  \label{eq:ap:1.33}
- \Delta x_g = m - m_0 - h
+ \Delta x_g = m - m_0 + h
 \end{equation}
 
 \begin{equation}
