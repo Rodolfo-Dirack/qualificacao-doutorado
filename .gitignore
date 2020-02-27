@@ -14,3 +14,4 @@ relatorio_rodolfo.pdf
 *.pdf
 !images/*
 images/esbocoFluxo.dia
+!slides/*.pdf
