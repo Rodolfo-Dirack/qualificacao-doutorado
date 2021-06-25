@@ -106,7 +106,7 @@
 
 \autor{Rodolfo André Cardoso Neves}
 \local{Belém-Pará}
-\data{2020}
+\data{2021}
 
 \orientador{Prof. Dr. João Carlos Ribeiro Cruz}
 \coorientador{}
@@ -180,7 +180,7 @@ do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Ge
 {\ABNTEXchapterfont\bfseries\large\MakeUppercase{\imprimirautor}}\\
 \vspace*{2cm}
 {\ABNTEXchapterfont\bfseries\large\imprimirtitulo}\\
-\vspace*{2cm}{\ABNTEXchapterfont\bfseries\large{RELATÓRIO DE QUALIFICAÇÃO DE DOUTORADO}}
+\vspace*{2cm}{\ABNTEXchapterfont\bfseries\large{RELATÓRIO DO PEDIDO DE PRORROGAÇÃO DO PRAZO DA TESE DE DOUTORADO}}
 \vspace*{\fill}\\
 {\large\MakeUppercase{\imprimirlocal}}
 \par
@@ -198,7 +198,7 @@ do Pará, em cumprimento às exigências para obtenção do grau de Doutor em Ge
 	\vspace*{\fill}\vspace*{\fill}
 	{\ABNTEXchapterfont\bfseries\large\imprimirtitulo}\\
 	 \vspace{\baselineskip}
-	{\ABNTEXchapterfont\bfseries\large{RELATÓRIO DE QUALIFICAÇÃO DE DOUTORADO}}
+	{\ABNTEXchapterfont\bfseries\large{RELATÓRIO DO PEDIDO DE PRORROGAÇÃO DO PRAZO DA TESE DE DOUTORADO}}
 	\vspace{\baselineskip}
 	\vspace{\baselineskip}
 	\vspace*{\fill}
@@ -288,11 +288,14 @@ e calculamos a curva de empilhamento aplicando a condição SDC ($R_N=R_{NIP}$) 
 Obtemos as famílias ERC através da regularização dos dados, aumentando a amostragem das seções de afastamento constante
 com a interpolação com filtros adaptativos de predição de erro (FPE) e calculamos as trajetórias ERC 
 no plano Ponto médio comum x afastamento em função de dos parâmetros $R_{NIP}$ e $\beta_0$.
-A inversão do modelo de velocidades é realizada em um laço iterativo e a atualização do modelo é feita com o VFSA.
-O modelo em cada iteração é obtido a partir de respostas de difração simuladas na seção empilhada ERC. Utilizando uma
-medida de focalização e a continuação de velocidades, obtemos o modelo de velocidades que melhor focaliza as hipérboles
-de difração simuladas. O critério de convergência do modelo de velocidades é a coerência entre os dados modelados
-com o modelo de velocidades da iteração atual e os dados pré empilhados.
+A inversão do modelo de velocidades é realizada através de uma metodologia baseada na NIP tomografia
+e na stereo tomografia utilizando os parâmetros $R_{NIP}$ e $\beta_0$ para traçar raios normais em um
+modelo inicial em profundidade para localizar fontes pontuais PIN.
+A partir destas fontes pontuais são traçados raios de reflexão que simulam
+uma família ERC, os tempos de trânsito dos raios são comparados com os tempos de trânsito calculados com
+a fómula do ERC e o modelo é atualizado.
+O modelo de velocidades otimizado é obtido quando a diferênça nos tempos de trânsito é
+mínima.
 \vspace{\onelineskip} 
  \noindent
  \par Palavras-chave: Inversão do modelo de velocidades. Aproximações não hiperbólicas do tempo de trânsito SRC. 
@@ -314,12 +317,13 @@ CDS condition ($R_N=R_{NIP}$) in this approximantion.
 We obtain the CRE Gathers through data regularization, increasing the constant offset gathers sampling with
 non adaptative prediction error filters interpolation (PEF) and calculating the seismic traces in the CRE trajectory in the 
 CMP x Offset plane in function of the $R_{NIP}$ and $\beta_0$ parameters.
-The velocity model inversion is done inside an iterative loop and the model updating uses VFSA algorithm.
-In each iteration the velocity model is obtained through diffraction response simulation in the CRE stacked section.
-Using the local varimax measure as a focusing criteria and velocity continuation, we obtain the best velocity model
-that focus the simulated diffraction hyperbole.
-The convergence criteria of the velocity model is the semblance between the modeled data with the 
-actual iteration velocity model and the pre-stack seismic data.
+The velocity model inversion methodology is based on NIP tomography and stereo tomography and it uses
+the $R_{NIP}$ and $\beta_0$ parameters only to trace normal rays inside a initial velocity model in depth
+to determine NIP sources. From these sources, several reflection rays are traced to simulate a CRE gather,
+the difference between rays traveltimes and traveltimes computed using CRE formula is computed and
+the model is updated. The main
+assumption is that the optimal velocity model will produces the minimun value of this traveltime
+difference.
 \vspace{\onelineskip} 
 \noindent 
  \par Palavras-chave: Velocity model inversion. Non-hyperbolic CRS traveltime approximation. 
@@ -339,6 +343,7 @@ actual iteration velocity model and the pre-stack seismic data.
 \mainmatter
 
 %% Inclusão dos capítulos ao documento principal
+\include{justificativa}
 \include{introducao}
 \include{cre} % Método CRE fundamentos teóricos
 \include{vfsa} % Otimização global VFSA
@@ -346,7 +351,9 @@ actual iteration velocity model and the pre-stack seismic data.
 \include{modeling} % Resultado da modelagem
 \include{interpolacao} % Resultados da Interpoção com PEF
 \include{empilhamento} % Resultados do empilhamento cre
-\include{velocidades} % Proposta de uma metodologia para inversão do modelo de velocidades
+\include{modelagem} % Proposta de uma metodologia para inversão do modelo de velocidades
+\include{primeira}
+\include{inversao}
 \include{cronograma} % cronograma de atividades e entrega do trabalho
 \include{conclusao} % conclusão discutindo os resultados obtidos e esperados
 

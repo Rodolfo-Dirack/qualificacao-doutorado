@@ -69,29 +69,61 @@ A seguir a descrição das etapas concluídas e o cronograma:
       \end{tabular}
   \end{table}
   
+A seguir as etapas concluídas após a qualificação de doutorado e até a entrega deste relatório:
+  
+  \begin{enumerate}
+  \item Qualificação da tese (03/2020): Defesa e apresentação deste relatório de qualificação de tese.
+  \item Desenvolvimento da estratégia de inversão do modelo de velocidades através da simulação
+  de difrações \cite{diffractions}, esta estratégia foi abandonada, pois necessita do
+  modelo de velocidades de sobretempo normal para simular as difrações (2020).
+  \item Pesquisa teórica sobre a estratégia de inversão baseada na NIP tomografia \cite{niptomo}
+  e stereotomografia \cite{stereo} e protótipos dos programas para o traçamento de raios (2020).
+   \item Programas sfnipmodsetup e sfgetparameter desenvolvidos pelo Autor em linguagem C 
+     e adaptados para o pacote Madagascar para a configuração inicial das fontes pontuais PIN
+    e obtenção dos parâmetros $R_{NIP}$ e $\beta_0$ (03/2021).
+   \item Desenvolvimento do programa sfzgradtomo desenvolvido pelo Autor em linguagem C 
+    e adaptado para o pacote Madagascar para a inversão do modelo de velocidades de background
+    (velocidade variando linearmente com a profundidade) (04/2021).
+   \item Desenvolvimento do protótipo do programa sfstereoniptomo desenvolvido pelo Autor em linguagem C 
+     e adaptado para o pacote Madagascar para a inversão do modelo de velocidades com variação
+     lateral de velocidades (06/2021)
+  \end{enumerate}
+
+
+  \begin{table}[H]
+      \caption{Cronograma de trabalho das etapas já concluídas em 2020 e 2021.}
+      \centering
+      
+      \begin{tabular}{|p{6cm}|c|c|c|c|c|}%{|c|c|c|c|c|c|}
+
+     \hline
+      \textbf{Etapas concluídas} & 2020 & 03/21 & 04/21 & 05/21 & 06/21 \\ \hline
+      Qualificação de doutorado & x & & &  & \\ \hline
+      Inversão com simulação de difrações & x & & &  & \\ \hline
+      Inversão baseada na NIP e stereo tomografia & x & & &  & \\ \hline
+      Programas configuração inicial do modelo & & x & &  & \\ \hline
+      Inversão modelo gradiente constante & & & x & x & \\ \hline
+      Inversão variação lateral de velocidade (protótipo) & & & & & x \\
+      \hline
+      \end{tabular}
+  \end{table}
+  
 \section{Etapas ainda não concluídas}
 
 A seguir a descrição das atividades ainda não realizadas e o cronograma:
 
   \begin{enumerate}
-   \item Qualificação da tese (03/2020): Defesa e apresentação deste relatório de qualificação de tese.
-   \item   Modelo de velocidades inicial (NIP tomografia) (09/2020): Criar uma metodologia para
-   obter o modelo de velocidade inicial para o algoritmo
-   descrito no Capítulo \ref{cap8:velocidades} através da NIP tomografia.
-    \item Simulador de resposta de difrações (09/2020): Criar um algoritmo de simulação da resposta de difrações, dado
-    um modelo de velocidades, para o pacote de processamento sísmico Madagascar em linguagem C.
-    \item  Algoritmo de focalização de difrações (03/2021): O algoritmo de focalização de difrações e inversão de velocidades
-    através da continuação de velocidades está pronto e disponível no site do pacote Madagascar para uso. A tarefa passa a ser
-    a adaptação deste algoritmo para a focalização das hipéroles de difração produzidas no item anterior.
-    \item  Inversão do modelo de velocidades VFSA (03/2021): Adaptar o algoritmo VFSA utilizado para a obtenção dos parâmetros
-    do SRC de afastamento nulo para a atualização das velocidades do modelo.
-    \item  Escrita do texto da tese (08/2021): Escrever e revisar o texto da tese, apresentar os resultados da
+    \item Inversão do modelo de velocidades com variação lateral (01/2022): Desenvolver o algoritmo de
+    inversão do programa sfstereoniptomo completo.
+    \item Testar a estratégia em outros modelos (02/2022): A estratégia de inversão será testada em 
+    vários modelos de velocidades diferentes, em camadas com variações lateral de velocidade dentro da
+    camada.
+    \item  Escrita do texto da tese (08/2022): Escrever e revisar o texto da tese, apresentar os resultados da
     inversão do modelo de velocidades.
-     \item Apresentação ao comitê de avaliação (08/2021): A data da apresentação para o Comitê de Avaliação de Tese 
-     é o dia 01 de Agosto de 2021.
-    \item  Defesa de tese (09/2021): A data da apresentação para a Banca Avaliadora dependerá das sugestões do
+     \item Apresentação ao comitê de avaliação (08/2022): A data da apresentação para o Comitê de Avaliação de Tese é o dia 01 de Agosto de 2022.
+    \item  Defesa de tese (08/2022): A data da apresentação para a Banca Avaliadora dependerá das sugestões do
     Comitê de Avaliação de Tese. A Previsão para defesa é entre os meses de Agosto de
-    2021 e Setembro de 2021.
+    2022 e Setembro de 2022 (Já considerando a prorrogação do prazo de defesa).
   \end{enumerate}
   
    \begin{table}[H]
@@ -101,15 +133,12 @@ A seguir a descrição das atividades ainda não realizadas e o cronograma:
       \begin{tabular}{|p{6cm}|c|c|c|c|c|}
 
       \hline
-      \textbf{Etapas ainda não concluídas} & 03/20 & 09/20 & 03/21 & 08/21 & 09/21 \\ \hline
-      Qualificação da tese & x & & & & \\ \hline
-      Modelo de velocidades inicial (NIP tomografia) & & x & & & \\ \hline
-      Simulador de resposta de difrações & & x & & & \\ \hline
-      Algoritmo de focalização de difrações & & & x & & \\ \hline
-      Inversão do modelo de velocidades VFSA & & & x & & \\ \hline
-      Escrita do texto da tese & & & & x & \\ \hline
-      Apresentação ao comitê de avaliação & & & & x & \\ \hline
-      Defesa de tese & & & & & x \\
+      \textbf{Etapas ainda não concluídas} & 01/21 & 02/22 & 03/22 & 08/22 \\ \hline
+      Inversão do modelo de velocidades & x & x & & \\ \hline
+      Testes em vários modelos & & & x & \\ \hline
+      Escrita do texto da tese & & & & x \\ \hline
+      Apresentação ao comitê de avaliação & & & & x \\ \hline
+      Defesa de tese & & & & x \\
       \hline
       
       \end{tabular}

@@ -23,3 +23,22 @@ serão obtidos da repetição deste experimento para modelos mais complexos, est
 empilhada ERC a partir da aplicação da condição SDC à aproximação não hiperbólica do tempo de trânsito SRC (Equação \ref{eq:2.4}).
 O segundo artigo irá tratar da inversão do modelo de velocidades a partir da metodologia de inversão aqui proposta
 no Capítulo \ref{cap8:velocidades}.
+
+As etapas já concluídas demonstram que a estratégia de inversão do modelo de velocidades é promissora,
+pois permite localizar corretamente as fontes pontuais PIN sobre os refletores em profundidade
+e obter um modelo de velocidades suavizado que pode ser utilizado como primeiro passo
+para a construção do modelo de velocidades em profundidade. Todavia,
+esta estratégia necessita de uma melhor forma de representar o modelo de velocidades com variação lateral
+de velocidades e metodologia de interpolação.
+
+O critério de convergência utilizado também precisa ser alterado para poder tratar modelos mais complexos.
+Neste relatório utilizamos as diferenças entre o tempo de trânsito obtido no traçamento de raios e a fórmula
+do ERC. Porém, a fórmula do ERC depende dos parâmetros $R_{NIP}$ e $\beta_0$ obtidos durante o empilhamento ERC.
+A incerteza na determinação destes parâmetros resulta em incerteza na determinação da localização das fontes
+pontuais PIN durante a inversão e na determinação dos tempos de trânsito com a fórmula ERC. Por isso, seria
+melhor utilizar o semblance calculado nas famílias ERC nos dados pré-empilhados, ajustando as curvas de tempo
+de trânsito obtidas no traçamento de raios aos dados.
+
+Por fim, para cumprir os objetivos estabelecidos no cronograma deste relatório solicito a prorrogação do prazo de defesa da minha tese de doutorado por mais um ano além do prazo normal de defesa. Os motivos do atraso no 
+desenvolvimento da tese foram explicitados na justificativa e oque foi desenvolvido desde a interrupção
+das atividades laboratoriais por causa da pandemia de Covid-19 também foi devidamente apresentado neste relatório.

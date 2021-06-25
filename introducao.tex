@@ -63,15 +63,39 @@ a cada iteração com o algoritmo VFSA.
 O critério de convergência do modelo de velocidades será a coerência entre
 os dados modelados a partir do modelo de velocidades da iteração atual com os dados pré empilhados \cite{mesquita}.
 
-O modelo de velocidades de cada iteração do algoritmo de inversão será produzido a partir de respostas simuladas
-de difrações em pontos $m_0, t_0$ escolhidos da seção empilhada ERC com uma equação de tempo de trânsito de difrações
-e o espalhamento da amplitude do ponto escolhido $A(m_0, t_0)$ sobre a trajetória de tempo de trânsito, formando
-a hipérbole de difração \cite{diffractions}. A focalização das difrações na seção empilhada ERC será realizada
-através de um algoritmo baseado na continuação de velocidades e na medida de variação máxima local para produzir
-os painéis de focalização da imagem com as velocidades que melhor focalizam as respostas de difrações simuladas.
-Com o \textit{picking} das velocidades nestes painéis (máximos valores de variação máxima local indicam alta focalização)
-é formado o modelo de velocidades da iteração atual \cite{sep_dif}.
+A estratégia utilizada para a inversão do modelo de velocidades apresentada na
+qualificação de doutorado foi abandonada em prol de uma nova estratégia de
+inversão baseada na NIP tomografia e na stereo tomografia \cite{niptomo,stereo}.
+A inversão do modelo de velocidades a partir da simulação e focalização
+de difrações sobre a seção empilhada  
+possui uma séria limitação: Esta necessita do modelo de velocidades
+de sobretempo normal (informação a priori) para simular as difrações sobre a seção empilhada e realizar a inversão através da focalização destas difrações. O empilhamento Elemento de Reflaxão Comum (ERC)
+não produz o modelo de velocidades de sobretempo normal,
+a seção empilhada é obtida a partir dos parâmetros $R_{NIP}$ e $\beta_0$ do método 
+Superfície de Reflexão Comum (SRC) de afastamento nulo.
 
+Assim, neste relatório, propomos uma nova estratégia para a inversão do modelo de velocidades em
+profundidade utilizando um método baseado na NIP tomografia e na stereo tomografia: A partir da seção
+empilhada ERC obtida realizamos o picking dos tempos de trânsito sobre os eventos de
+reflexão na seção. Estes tempos de trânsito são utilizados para localizar fontes pontuais sobre os relfetores
+em um modelo de velocidades de background. Isto é feito através do traçamento de raios normais a partir
+da superfície de aquisição em direção ao modelo em profundidade. A direção inicial do raio normal
+é dada pelo ângulo de incidência $\beta_0$.
+Realizamos a modelagem direta traçando raios de reflexão a partir destas fontes pontuais em profundidade
+até atingirem a superfície de reflexão e comparamos os tempos de trânsito obtidos com os tempos de trânsito
+calculados através da fórmula do ERC. O pressuposto da nossa estratégia de inversão é que os tempos
+de trânsito obtidos com o traçamento de raios serão próximos aos tempos de trânsito calculados para
+o modelo de velocidades ótimo.
 
+Assim, utilizamos a soma das diferenças nos tempos de trânsito obtidos com o traçamento de raios
+no modelo de velocidades em profundidade e os tempos de trânsito calculados pela fórmula do ERC como
+critério de convergência da inversão. A atualização do modelo é realizada pelo algoritmo
+Very Fast Simulated Annealing (VFSA) que atualiza as perturbações sobre o modelo de velocidades
+de background definido sobre uma malha regular. Após a atualização, os raios de reflexão são
+traçados novamente e as diferenças dos tempos de trânsito são recalculadas. Este processo é
+repetido até o número máximo de iterações e o modelo otimizado é armazenado. O traçamento
+dos raios normais e localização das fontes PIN é refeito utilizando este novo modelo de velocidades
+e o processo é reiniciado. Após um número determinado de iterações, o modelo de velocidades otimizado 
+e a correta localização das fontes PIN sobre o refletor são obtidos.
 
 
