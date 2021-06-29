@@ -1,22 +1,23 @@
-\chapter{ESTRATÉGIA DE INVERSÃO DO MODELO DE VELOCIDADES}
+\chapter{MODELO DE VELOCIDADES COM VARIAÇÃO LATERAL}
 \label{cap11}
 
 Esta etapa do desenvolvimento da tese ainda não está totalmente concluída. Neste capítulo apresentamos
 os resultados preliminares:
 A segunda etapa da estratégia de inversão do modelo de velocidades consiste em encontrar a perturbação
-$\delta v$ do modelo de velocidades de background (Figura \ref{fig:10.2}, à direita)
-obtido no capítulo anterior que permite a correta 
+$\delta v(x,z)$ para um modelo de velocidades de background arbitrário.
+Utilizamos o modelo de velocidades de gradiente constante (Figura \ref{fig:10.2} à direita)
+obtido na etapa de inversão do Capítulo 10. O objetivo desta etapa é obter a correta 
 localização das fontes PIN sobre os refletores do modelo de velocidades original (Figura \ref{fig:9.2}).
 Assim, definimos o novo modelo de velocidades com variação lateral de velocidade na
 Equação a seguir:
 
 \begin{equation}
 \label{eq:11.1}
-v(x,z)=z g_z+v_0+\delta v
+v(x,z)=z g_z+v_0+\delta v(x,z)
 \end{equation}
 
 Onde $z$ é a coordenada da profundidade, $g_z$ é o gradiente de velocidades em profundidade obtido na
-etapa de inversão anterior e $v_0$ é a velocidade próxima da superfície. O termo $\delta v$ representa
+etapa de inversão anterior e $v_0$ é a velocidade próxima da superfície. O termo $\delta v(x,z)$ representa
 a perturbação no modelo de velocidades de background (Equação \ref{eq:10.1})
 representado pelas duas primeiras parcelas à direita na 
 Equação \ref{eq:11.1}.
@@ -26,7 +27,7 @@ representado pela Equação \ref{eq:11.1}
 é realizada de forma semelhante à desenvolvida no Capítulo 10:
 Utilizamos a Equação \ref{eq:9.2} da soma das diferenças nos tempos de trânsito obtidos com o traçamento de raios no modelo de velocidades e os tempos de trânsito calculados utilizando a fórmula do ERC
 (Equação \ref{eq:9.1}) como critério de convergência.
-Todavia, nesta etapa, o algoritmo Very Fast Simulated Annealing (VFSA) é utilizado para realizar a otimização das perturbações $\delta v$ do modelo de velocidades ao invés do gradiente de velocidades em
+Todavia, nesta etapa, o algoritmo Very Fast Simulated Annealing (VFSA) é utilizado para realizar a otimização das perturbações $\delta v(x,z)$ do modelo de velocidades ao invés do gradiente de velocidades em
 profundidade, já obtido na etapa anterior. Estas perturbações são atualizadas a cada iteração do VFSA (Ver a estratégia completa na representação esquemática do algoritmo na Figura \ref{fig:11.1}).
 
 Ainda precisamos escolher a melhor estratégia para a representação do modelo de velocidades
@@ -36,7 +37,8 @@ controle $\Delta v_{ij}$. Somamos estas perturbações ao modelo de background n
 a malha utilizando a Equação \ref{eq:11.1} e interpolamos para todo o modelo de velocidades
 através da interpolação essentially non-oscillatory (ENO) \cite{eno1,eno2}. Esta metodologia
 de interpolação é utilizada para restringir o número de parâmetros a serem otimizados pelo VFSA
-aos pontos de controle ao invés de otimizar todos os pontos sobre a malha do modelo de velocidades.
+aos pontos de controle ao invés de otimizar todos os pontos sobre a malha do modelo de velocidades,
+pois um número grande de parâmetros pode prejudicar a otimização com o VFSA.
 
 \begin{figure}[H]
 \caption{Representação esquemática do algoritmo de inversão do modelo de velocidades

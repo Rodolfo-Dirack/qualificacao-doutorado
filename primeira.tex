@@ -1,11 +1,14 @@
-\chapter{MODELO DE VELOCIDADES DE BACKGROUND}
+\chapter{MODELO DE VELOCIDADES COM GRADIENTE CONSTANTE}
 \label{cap10}
 
-A primeira iteração do algoritmo de inversão tem por objetivo a obtenção do gradiente de
-velocidades em profundidade do modelo de velocidades de background \cite{niptomo,stereo}.
-O modelo inicial utilizado é um modelo de velocidades homogêneo
+A primeira utilização do algoritmo de inversão aqui apresentado
+tem por objetivo a obtenção do gradiente de
+velocidades em profundidade para um modelo de velocidades em que a velocidade varia linearmente com a profundidade. Este modelo será chamado também de modelo de velocidades de background
+\cite{niptomo,stereo}.
+O modelo inicial utilizado no algoritmo da Figura \ref{fig:9.9}
+é um modelo de velocidades homogêneo
 e de velocidade constante igual a $1.5Km/s$,
-correspondente a velocidade próxima da superfície de aquisição. Traçamos raios normais
+correspondente à velocidade $v_0$ próxima da superfície de aquisição. Traçamos raios normais
 partindo da coordenada $m_0$ e com ângulo de inclinação $\beta_0$ em direção ao modelo
 de velocidade constante para determinar a localização inicial das fontes PIN (cruzes
 em preto na Figura \ref{fig:10.1}). Este será o modelo inicial desta etapa da inversão.
@@ -27,19 +30,6 @@ Para a otimização do modelo de velocidades de gradiente constante
 é utilizada a Equação \ref{eq:9.2} da soma das
 diferenças nos tempos de trânsito obtidos com o traçamento de raios e os tempos de trânsito calculados utilizando a fórmula do ERC (Equação \ref{eq:9.1}). Utilizamos o algoritmo Very Fast Simulated Annealing (VFSA) para atualizar o gradiente em profundidade do modelo de velocidades (Ver o algoritmo completo na
 Figura \ref{fig:10.2}).
-
-\begin{figure}[H]
-\caption{Representação esquemática do algoritmo de inversão do gradiente $g_z$ do modelo de velocidades
-com gradiente constante (velocidade cresce linearmente com a profundidade).}
-\begin{center}
-\includegraphics[scale=0.5]{images/fluxogz.png}
-\vspace{-0.3cm}
-\end{center}
-\begin{center}
- Fonte: Do Autor.
-\end{center}
-\label{fig:10.2}
-\end{figure}
 
 O modelo de velocidades é atualizado a cada iteração do algoritmo para cada valor do gradiente $g_z$
 dada a seguinte função de velocidades:
@@ -63,6 +53,19 @@ Figura \ref{fig:10.3} à direita em comparação com o modelo de velocidade cons
 à esquerda, as cruzes em preto representam a localização das fontes pontuais PIN em cada um dos modelos.
 A localização das fontes pontuais PIN obtidas a partir do modelo de velocidades de gradiente constante
 é plotada sobre o modelo de velocidades original na Figura \ref{fig:10.4}.
+
+\begin{figure}[H]
+\caption{Representação esquemática do algoritmo de inversão do gradiente $g_z$ do modelo de velocidades
+com gradiente constante (velocidade cresce linearmente com a profundidade).}
+\begin{center}
+\includegraphics[scale=0.5]{images/fluxogz.png}
+\vspace{-0.3cm}
+\end{center}
+\begin{center}
+ Fonte: Do Autor.
+\end{center}
+\label{fig:10.2}
+\end{figure}
 
 \begin{figure}[H]
 \caption{Modelo de velocidade constante à esquerda (velocidade igual a $1.5Km/s$)
